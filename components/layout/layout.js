@@ -11,7 +11,11 @@ import { animated } from "react-spring";
   Margin — Stack: base, xs, s, m, l, xl
   Margin — Inline: base, xs, s, m, l, xl
 */
-const spacingProperties = ({ padding, margin, theme: { size, sizeMobile } }) => {
+const spacingProperties = ({
+  padding,
+  margin,
+  theme: { size, sizeMobile }
+}) => {
   // >>> CSS shorthand reference: top, right, bottom, left
   // >>> Padding — Inset: base, xs, s, m, l, xl
   const insetBase = `${size.base} ${size.base} ${size.base} ${size.base}`;
@@ -45,6 +49,14 @@ const spacingProperties = ({ padding, margin, theme: { size, sizeMobile } }) => 
   const inlineM = `0 ${size.m} 0 0`;
   const inlineL = `0 ${size.l} 0 0`;
   const inlineXl = `0 ${size.xl} 0 0`;
+
+  // >>> Margin — Wrap: base, xs, s, m, l, xl
+  const wrapBase = `0 ${size.base} ${size.base} 0`;
+  const wrapXs = `0 ${size.xs} ${size.xs} 0`;
+  const wrapS = `0 ${size.s} ${size.s} 0`;
+  const wrapM = `0 ${size.m} ${size.m} 0`;
+  const wrapL = `0 ${size.l} ${size.l} 0`;
+  const wrapXl = `0 ${size.xl} ${size.xl} 0`;
 
   // //////////// Mobile ////////////
   // >>> Padding — Inset: base, xs, s, m, l, xl
@@ -102,6 +114,14 @@ const spacingProperties = ({ padding, margin, theme: { size, sizeMobile } }) => 
   const inlineLMobile = `0 ${sizeMobile.l} 0 0`;
   const inlineXlMobile = `0 ${sizeMobile.xl} 0 0`;
 
+  // >>> Margin — Wrap: base, xs, s, m, l, xl
+  const wrapBaseMobile = `0 ${sizeMobile.base} ${sizeMobile.base} 0`;
+  const wrapXsMobile = `0 ${sizeMobile.xs} ${sizeMobile.xs} 0`;
+  const wrapSMobile = `0 ${sizeMobile.s} ${sizeMobile.s} 0`;
+  const wrapMMobile = `0 ${sizeMobile.m} ${sizeMobile.m} 0`;
+  const wrapLMobile = `0 ${sizeMobile.l} ${sizeMobile.l} 0`;
+  const wrapXlMobile = `0 ${sizeMobile.xl} ${sizeMobile.xl} 0`;
+
   return css`
     padding: ${(padding === "inset-base" && insetL) ||
       (padding === "inset-xs" && insetXs) ||
@@ -127,7 +147,13 @@ const spacingProperties = ({ padding, margin, theme: { size, sizeMobile } }) => 
       (margin === "inline-s" && inlineS) ||
       (margin === "inline-m" && inlineM) ||
       (margin === "inline-l" && inlineL) ||
-      (margin === "inline-xl" && inlineXl)};
+      (margin === "inline-xl" && inlineXl) ||
+      (margin === "wrap-base" && wrapBase) ||
+      (margin === "wrap-xs" && wrapXs) ||
+      (margin === "wrap-s" && wrapS) ||
+      (margin === "wrap-m" && wrapM) ||
+      (margin === "wrap-l" && wrapL) ||
+      (margin === "wrap-xl" && wrapXl)};
 
     @media (max-width: 45em) {
       padding: ${(padding === "inset-base" && insetLMobile) ||
@@ -136,10 +162,10 @@ const spacingProperties = ({ padding, margin, theme: { size, sizeMobile } }) => 
         (padding === "inset-m" && insetMMobile) ||
         (padding === "inset-l" && insetBaseMobile) ||
         (padding === "inset-xl" && insetXlMobile) ||
-        (padding === "squish-base" && squishBaseMobile) ||
+        /*(padding === "squish-base" && squishBaseMobile) ||
         (padding === "squish-s" && squishSMobile) ||
         (padding === "squish-m" && squishMMobile) ||
-        (padding === "squish-l" && squishLMobile) ||
+        (padding === "squish-l" && squishLMobile) || */
         (padding === "stretch-s" && stretchSMobile) ||
         (padding === "stretch-m" && stretchMMobile)};
 
@@ -154,7 +180,13 @@ const spacingProperties = ({ padding, margin, theme: { size, sizeMobile } }) => 
         (margin === "inline-s" && inlineSMobile) ||
         (margin === "inline-m" && inlineMMobile) ||
         (margin === "inline-l" && inlineLMobile) ||
-        (margin === "inline-xl" && inlineXlMobile)};
+        (margin === "inline-xl" && inlineXlMobile) ||
+        (margin === "wrap-base" && wrapBaseMobile) ||
+        (margin === "wrap-xs" && wrapXsMobile) ||
+        (margin === "wrap-s" && wrapSMobile) ||
+        (margin === "wrap-m" && wrapMMobile) ||
+        (margin === "wrap-l" && wrapLMobile) ||
+        (margin === "wrap-xl" && wrapXlMobile)};
     }
   `;
 };
@@ -166,10 +198,11 @@ const spacingProperties = ({ padding, margin, theme: { size, sizeMobile } }) => 
   margin: [refer to spacingProperties]
   animate: Boolean
   name: String
+  inline: Boolean
 */
 const StyledItem = styled.div`
   ${spacingProperties}
-  display: flex;
+  display: ${props => (props.inline ? "inline-flex" : "flex")};
   justify-content: ${props =>
     ((props.topleft || props.left || props.bottomleft) && "flex-start") ||
     ((props.top || props.center || props.bottom) && "center") ||
@@ -206,7 +239,8 @@ Item.propTypes = {
   center: PropTypes.bool,
   bottomleft: PropTypes.bool,
   bottom: PropTypes.bool,
-  bottomright: PropTypes.bool
+  bottomright: PropTypes.bool,
+  inline: PropTypes.bool
 };
 
 /* 
