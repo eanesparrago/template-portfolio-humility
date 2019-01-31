@@ -19,11 +19,12 @@ export default {
       "2em", // >>> 32px
       "3em", // >>> 48px
       "3.875em" // >>> 62px
-    ]
+    ],
+    lineHeight: 1.5
   },
   color: {
     primary: {
-      main: "",
+      main: "#A5E7E8",
       light: "",
       dark: ""
     },
@@ -48,23 +49,23 @@ export default {
     }
   },
   size: {
-    xs: "0.25em", // >>> 4
-    s: "0.5em", // >>> 8
-    m: "1em", // >>> 16
-    l: "2em", // >>> 32
-    xl: "4em", // >>> 64
-    base: "1.5em", // >>> 24px/3em for desktop, 16px/1em for mobile
-    px: px => `${px / 16}em`
+    xs: "0.25rem", // >>> 4
+    s: "0.5rem", // >>> 8
+    m: "1rem", // >>> 16
+    l: "2rem", // >>> 32
+    xl: "4rem", // >>> 64
+    base: "1.5rem" // >>> 24px/3em for desktop, 16px/1em for mobile,
   },
   sizeMobile: {
-    xs: "0.17em", //
-    s: "0.33em", //
-    m: "0.67em", //
-    l: "1.33em", //
-    xl: "2.67em", //
-    base: "1em" //
+    xs: "0.17rem", //
+    s: "0.33rem", //
+    m: "0.67rem", //
+    l: "1.33rem", //
+    xl: "2.67rem", //
+    base: "1rem" //
   },
   increment: increment => `calc(${increment} * var(--size-base))`,
+  incrementFixed: increment => `calc(${increment} * var(--size-base-fixed))`,
   shadow: [
     "0 0.0625em 0.1875em rgba(0,0,0,0.12), 0 0.0625em 0.125em rgba(0,0,0,0.24)",
     "0 0.1875em 0.375em rgba(0,0,0,0.16), 0 0.1875em 0.375em rgba(0,0,0,0.23)",
@@ -73,63 +74,3 @@ export default {
     "0 1.1875em 2.375em rgba(0,0,0,0.30), 0 0.9375em 0.75em rgba(0,0,0,0.22)"
   ]
 };
-
-// const breakpoints = [
-//   // >>> desktop first breakpoints
-//   "37.4375rem", // >>> 599px
-//   "44.9375rem", // >>> 719px
-//   "52.4375rem" // >>> 839px
-// ];
-
-// const font = {
-//   primary: "Montserrat, sans-serif"
-// };
-
-// const color = {
-//   primary: {
-//     main: "",
-//     light: "",
-//     dark: ""
-//   },
-//   seconday: {
-//     main: "",
-//     light: "",
-//     dark: ""
-//   },
-//   light: "",
-//   dark: "",
-//   white: "#FFFFFF",
-//   black: "#000000",
-//   grey: {
-//     light: "",
-//     medium: "",
-//     dark: ""
-//   }
-// };
-
-// const typography = {
-//   h1: {
-//     size: ""
-//   },
-//   h2: {
-//     size: ""
-//   },
-//   h3: {
-//     size: ""
-//   },
-//   body: {
-//     size: ""
-//   },
-//   subtitle: {},
-//   caption: {}
-// };
-
-// const size = {
-//   m: "24em"
-// };
-
-// module.exports = {
-//   color,
-//   typography,
-//   font
-// };

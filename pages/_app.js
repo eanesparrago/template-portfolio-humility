@@ -23,7 +23,13 @@ const GlobalStyle = createGlobalStyle`
     --size-l: ${style.size.l};
     --size-xl: ${style.size.xl};
     --size-base: ${style.size.base};
-    --size-em: 1;
+    --size-base-fixed: ${style.size.base};
+    --size-button: auto;
+
+
+    @media (max-width: ${style.breakpoint.tabletLarge}) {
+      --size-button: 3rem;
+    } 
 
     @media (max-width: ${style.breakpoint.tabletSmall}) {
       --size-xs: ${style.sizeMobile.xs};
@@ -32,18 +38,23 @@ const GlobalStyle = createGlobalStyle`
       --size-l: ${style.sizeMobile.l};
       --size-xl: ${style.sizeMobile.xl};
       --size-base: ${style.sizeMobile.base};
-      --size-em: 0.67;
-    }
+    } 
   }
 
   html, body, #__next {
+
 }
 
-  body {
-    color: ${style.color.dark};
-    font-family: ${style.font.family.primary};
-    font-size: 16px;
-  }
+html {
+  font-size: 16px;
+}
+
+body {
+  color: ${style.color.dark};
+  font-family: ${style.font.family.primary};
+  font-size: 16px;
+  background-color: ${style.color.light};
+}
 `;
 
 export default class MyApp extends App {
