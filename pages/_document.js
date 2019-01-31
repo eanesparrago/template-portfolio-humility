@@ -63,7 +63,7 @@ export default class MyDocument extends Document {
 
           {/* >>> CSS reset (destyle.css) */}
 
-          <link rel="stylesheet" href="/static/css/destyle.css"/>
+          <link rel="stylesheet" href="/static/css/destyle.css" />
 
           {/* >>> Import CSS for nprogress */}
 
@@ -72,8 +72,6 @@ export default class MyDocument extends Document {
             type="text/css"
             href="/static/css/nprogress.css"
           />
-
-          <title>Boilerplate LJEsp Next Basic</title>
         </Head>
         <body>
           <Main />

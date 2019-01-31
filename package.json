@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "build-netlify": "npm run build && npm run export"
   },
   "dependencies": {
     "next": "^7.0.2",
