@@ -1,12 +1,13 @@
-import React, { Component } from "react";
-import { Item } from "../components/layout/layout";
+import React, { Component, Fragment } from "react";
+import { Sidebar } from "../components/compounds";
+import { Item } from "../components/layout";
 
 export default class extends Component {
   render() {
     return (
-      <Item padding="squish-l">
-        <span>LJEsp | Next.js Basic Boilerplate</span>
-      </Item>
+      <Fragment>
+        <Sidebar />
+      </Fragment>
     );
   }
 }

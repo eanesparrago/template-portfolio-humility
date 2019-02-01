@@ -26,6 +26,7 @@ const spacingProperties = ({
   const insetXl = `${size.xl} ${size.xl} ${size.xl} ${size.xl}`;
 
   // >>> Padding — Squish: s, m, l
+  const squishBase = `${size.m} ${size.base} ${size.m} ${size.base}`;
   const squishS = `${size.xs} ${size.s} ${size.xs} ${size.s}`;
   const squishM = `${size.s} ${size.m} ${size.s} ${size.m}`;
   const squishL = `${size.m} ${size.l} ${size.m} ${size.l}`;

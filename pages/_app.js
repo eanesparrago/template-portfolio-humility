@@ -17,6 +17,7 @@ Router.events.on("routeChangeError", () => NProgress.done());
 // >>> Global styles
 const GlobalStyle = createGlobalStyle`
   :root {
+    --size-xxs: ${style.size.xxs};
     --size-xs: ${style.size.xs};
     --size-s: ${style.size.s};
     --size-m: ${style.size.m};
@@ -42,19 +43,20 @@ const GlobalStyle = createGlobalStyle`
   }
 
   html, body, #__next {
+    height: 100%;
+  }
 
-}
 
-html {
-  font-size: 16px;
-}
+  html {
+    font-size: 16px;
+  }
 
-body {
-  color: ${style.color.dark};
-  font-family: ${style.font.family.primary};
-  font-size: 16px;
-  background-color: ${style.color.light};
-}
+  body {
+    color: ${style.color.dark};
+    font-family: ${style.font.sansSerif};
+    font-size: 19px;
+    background-color: ${style.color.light};
+  }
 `;
 
 export default class MyApp extends App {
@@ -74,7 +76,7 @@ export default class MyApp extends App {
     return (
       <Fragment>
         <Head>
-          <title>LJEsp | Next.js Basic Boilerplate</title>
+          <title>Humilty | Portfolio Template | LJEsp</title>
         </Head>
 
         <ThemeProvider theme={style}>

@@ -7,26 +7,49 @@ export default {
     tabletLarge: "839px" // >>> 839px
   },
   font: {
-    family: {
-      primary: "Montserrat, sans-serif"
+    sansSerif: "PT Sans, sans-serif",
+    serif: "PT Serif, serif",
+    scale: {
+      base: "1em", // >>> 16px
+      body: "1.1875em", // >>> 19px
+      h3: "1.5em", // >>> 24px
+      h2: "2em", // >>> 32px
+      h1: "3em" // >>> 48px
     },
-    scale: [
-      "1em", // >>> 16px
-      "1.1875em", // >>> 19px
-      "1.3125em", // >>> 21px
-      "1.5em", // >>> 24px
-      "1.75em", // >>> 28px
-      "2em", // >>> 32px
-      "3em", // >>> 48px
-      "3.875em" // >>> 62px
-    ],
-    lineHeight: 1.5
+    lineHeight: 1.5,
+    letterSpacing: "0.08em"
   },
+  // color: {
+  //   primary: {
+  //     main: "#1E88E5",
+  //     light: "#64B5F6",
+  //     dark: "#0D47A1"
+  //   },
+  //   seconday: {
+  //     main: "",
+  //     light: "",
+  //     dark: ""
+  //   },
+  //   tertiary: {
+  //     main: "",
+  //     light: "",
+  //     dark: ""
+  //   },
+  //   light: "#212121",
+  //   dark: "#FAFAFA",
+  //   white: "#FFFFFF",
+  //   black: "#000000",
+  //   grey: {
+  //     light: "#F5F5F5",
+  //     medium: "#9E9E9E",
+  //     dark: "#424242"
+  //   }
+  // },
   color: {
     primary: {
-      main: "#A5E7E8",
-      light: "",
-      dark: ""
+      main: "#1E88E5",
+      light: "#64B5F6",
+      dark: "#0D47A1"
     },
     seconday: {
       main: "",
@@ -49,6 +72,7 @@ export default {
     }
   },
   size: {
+    xxs: "0.125rem", // >>> 2
     xs: "0.25rem", // >>> 4
     s: "0.5rem", // >>> 8
     m: "1rem", // >>> 16
