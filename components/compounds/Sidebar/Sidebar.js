@@ -1,28 +1,15 @@
 import React, { Component } from "react";
-import { Button, Typography, Photo } from "../../elements";
-import { Item, Box, Container, Area } from "../../layout";
 import styled from "styled-components";
+import { Spring, Trail, config } from "react-spring";
+import { Item, Box, Container, Area } from "../../layout";
+import { Button, Typography, Photo } from "../../elements";
 
 const StyledSidebar = styled.section`
-  border: 1px solid magenta;
-  width: ${p => p.theme.increment(12)};
+  width: ${p => p.theme.incrementFixed(12)};
   text-align: center;
   background-color: ${p => p.theme.color.white};
   height: 100%;
   /* display: inline-flex; */
-
-  .item-photo {
-    width: ${p => p.theme.increment(8)};
-    height: ${p => p.theme.increment(8)};
-  }
-
-  .item-social {
-    /* width:  */
-  }
-
-  .box-main {
-    height: 100%;
-  }
 
   .container-main {
     height: 100%;
@@ -30,6 +17,23 @@ const StyledSidebar = styled.section`
     flex-flow: column nowrap;
     justify-content: space-between;
     align-items: center;
+    overflow: hidden;
+  }
+
+  .item-photo {
+    width: ${p => p.theme.increment(8)};
+    height: ${p => p.theme.increment(8)};
+    /* position: relative; */
+    z-index: 1;
+  }
+
+  .item-name {
+    /* position: relative; */
+    /* z-index: 0; */
+  }
+
+  .item-social {
+    /* width:  */
   }
 
   .box-copyright {
@@ -40,70 +44,123 @@ const StyledSidebar = styled.section`
   }
 `;
 
+const socialIcons = [
+  "fab fa-2x fa-github",
+  "fab fa-2x fa-linkedin",
+  "fab fa-2x fa-twitter"
+];
+
+const navItems = ["Projects", "Templates", "Graphics", "Blog", "About Me"];
+
 export default class extends Component {
   render() {
     return (
       <StyledSidebar>
         <Container name="main" padding="inset-base">
           <Box column align="center">
-            <Item name="photo" margin="stack-base">
-              <Photo rounded>
-                <img
-                  src="http://images.amcnetworks.com/ifccenter.com/wp-content/uploads/2016/12/dr-strangelove_1280x720.jpg"
-                  alt=""
-                />
-              </Photo>
-            </Item>
+            <Spring
+              native
+              // config={config.stiff}
+              from={{ opacity: "0", transform: "rotate(180deg)" }}
+              to={{ opacity: "1", transform: "rotate(0deg)" }}
+            >
+              {props => (
+                <Item style={props} name="photo" animate margin="stack-base">
+                  <Photo rounded>
+                    <img
+                      src="http://images.amcnetworks.com/ifccenter.com/wp-content/uploads/2016/12/dr-strangelove_1280x720.jpg"
+                      alt=""
+                    />
+                  </Photo>
+                </Item>
+              )}
+            </Spring>
 
-            <Item name="name" center margin="stack-base">
-              <Typography as="h3">Doctor Strangelove</Typography>
-            </Item>
+            <Spring
+              delay={200}
+              // config={config.stiff}
+              native
+              from={{ opacity: "0", transform: "translateY(-10em)" }}
+              to={{ opacity: "1", transform: "translateY(0em)" }}
+            >
+              {props => (
+                <Item
+                  name="name"
+                  style={props}
+                  animate
+                  center
+                  margin="stack-base"
+                >
+                  <Typography as="h3">Doctor Strangelove</Typography>
+                </Item>
+              )}
+            </Spring>
 
             <Box wrap margin="stack-base" justify="center">
-              <Item padding="squish-m">
-                <Button variant="icon-link">
-                  <i class="fab fa-2x fa-github" />
-                </Button>
-              </Item>
-
-              <Item padding="squish-m">
-                <Button variant="icon-link">
-                  <i class="fab fa-2x fa-linkedin" />
-                </Button>
-              </Item>
-
-              <Item padding="squish-m">
-                <Button variant="icon-link">
-                  <i class="fab fa-2x fa-twitter" />
-                </Button>
-              </Item>
+              <Trail
+                delay={600}
+                config={config.stiff}
+                items={socialIcons}
+                native
+                keys={item => item}
+                from={{ opacity: "0" }}
+                to={{ opacity: "1" }}
+              >
+                {social => props => (
+                  <Item style={props} animate padding="squish-m">
+                    <Button variant="icon-link">
+                      <i class={social} />
+                    </Button>
+                  </Item>
+                )}
+              </Trail>
             </Box>
 
             <Box column>
-              <Button>Projects</Button>
-              <Button>Templates</Button>
-              <Button>Graphics</Button>
-              <Button>Blog</Button>
-              <Button>About Me</Button>
+              <Trail
+                delay={800}
+                config={config.stiff}
+                native
+                items={navItems}
+                keys={item => item}
+                from={{ opacity: "0", transform: "translateX(-10em)" }}
+                to={{ opacity: "1", transform: "translateX(0)" }}
+              >
+                {item => props => (
+                  <Item style={props} animate padding="squish-m">
+                    <Button variant="text">{item}</Button>
+                  </Item>
+                )}
+              </Trail>
             </Box>
           </Box>
 
-          <Box name="copyright" align="center">
-            <Item margin="inline-m">
-              <Typography>Made by LJEsp</Typography>
-            </Item>
+          <Spring
+            delay={1500}
+            config={config.stiff}
+            native
+            from={{ transform: "translateY(20em)" }}
+            to={{ transform: "translateY(0)" }}
+          >
+            {props => (
+              <Box name="copyright" style={props} animate align="center">
+                <Item margin="inline-m">
+                  <Typography>Made by LJEsp</Typography>
+                </Item>
 
-            <Item name="lje">
-              <Button variant="photo-link" href="https://github.com/LJEsp">
-                <Photo variant="contain" rounded>
-                  <img
-                    src="https://avatars1.githubusercontent.com/u/36854142?s=460&v=4"
-                    alt=""
-                  />
-                </Photo>
-              </Button>
-            </Item>
-          </Box>
+                <Item name="lje">
+                  <Button variant="photo-link" href="https://github.com/LJEsp">
+                    <Photo variant="cover" rounded>
+                      <img
+                        src="https://avatars1.githubusercontent.com/u/36854142?s=460&v=4"
+                        alt=""
+                      />
+                    </Photo>
+                  </Button>
+                </Item>
+              </Box>
+            )}
+          </Spring>
         </Container>
       </StyledSidebar>
     );

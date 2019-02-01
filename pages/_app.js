@@ -49,6 +49,10 @@ const GlobalStyle = createGlobalStyle`
 
   html {
     font-size: 16px;
+
+    @media (max-width: ${style.breakpoint.tabletSmall}) {
+      font-size: 15px;
+    }
   }
 
   body {
@@ -56,6 +60,10 @@ const GlobalStyle = createGlobalStyle`
     font-family: ${style.font.sansSerif};
     font-size: 19px;
     background-color: ${style.color.light};
+
+    @media (max-width: ${style.breakpoint.tabletSmall}) {
+      font-size: 16px;
+    }
   }
 `;
 
