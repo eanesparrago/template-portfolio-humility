@@ -65,6 +65,10 @@ const GlobalStyle = createGlobalStyle`
       font-size: 16px;
     }
   }
+
+  a img {outline : none;}
+  img {border : 0;}
+  a {outline : none;}
 `;
 
 export default class MyApp extends App {

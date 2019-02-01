@@ -23,13 +23,7 @@ const StyledSidebar = styled.section`
   .item-photo {
     width: ${p => p.theme.increment(8)};
     height: ${p => p.theme.increment(8)};
-    /* position: relative; */
     z-index: 1;
-  }
-
-  .item-name {
-    /* position: relative; */
-    /* z-index: 0; */
   }
 
   .item-social {
@@ -78,7 +72,6 @@ export default class extends Component {
 
             <Spring
               delay={200}
-              // config={config.stiff}
               native
               from={{ opacity: "0", transform: "translateY(-10em)" }}
               to={{ opacity: "1", transform: "translateY(0em)" }}

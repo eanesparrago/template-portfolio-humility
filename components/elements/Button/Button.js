@@ -35,6 +35,7 @@ const StyledButtonText = styled.button`
   transition-property: color, transform;
   transition-duration: 100ms;
   min-height: var(--size-button);
+  width: 100%;
 
   &:hover {
     color: ${p => p.theme.color.primary.main};
