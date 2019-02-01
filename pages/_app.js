@@ -93,16 +93,10 @@ export default class MyApp extends App {
             content="initial-scale=1.0, width=device-width"
           />
 
-          <PageMap>
-            <DataObject type="thumbnail">
-              <Attribute
-                name="src"
-                value="http://www.example.com/recipes/applepie/applepie.jpg"
-              />
-              <Attribute name="width" value="100" />
-              <Attribute name="height" value="130" />
-            </DataObject>
-          </PageMap>
+          <meta
+            name="thumbnail"
+            content="http://www.example.com/recipes/applepie/applepie.jpg"
+          />
 
           {/* >>> Favicon */}
           <link
