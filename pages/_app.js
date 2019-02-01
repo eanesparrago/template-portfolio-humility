@@ -88,6 +88,64 @@ export default class MyApp extends App {
     return (
       <Fragment>
         <Head>
+          <meta
+            name="viewport"
+            content="initial-scale=1.0, width=device-width"
+          />
+
+          <PageMap>
+            <DataObject type="thumbnail">
+              <Attribute
+                name="src"
+                value="http://www.example.com/recipes/applepie/applepie.jpg"
+              />
+              <Attribute name="width" value="100" />
+              <Attribute name="height" value="130" />
+            </DataObject>
+          </PageMap>
+
+          {/* >>> Favicon */}
+          <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/static/apple-touch-icon.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/static/favicon-32x32.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/static/favicon-16x16.png"
+          />
+          <link rel="manifest" href="/site.webmanifest" />
+          <meta name="msapplication-TileColor" content="#da532c" />
+          <meta name="theme-color" content="#ffffff" />
+
+          {/* >>> CSS reset (destyle.css) */}
+          <link rel="stylesheet" href="/static/destyle.css" />
+
+          {/* >>> Google Fonts */}
+          <link
+            href="https://fonts.googleapis.com/css?family=PT+Sans:400,700|PT+Serif:400,700"
+            rel="stylesheet"
+          />
+
+          {/* >> Fontawesome */}
+          <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+            integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+            crossorigin="anonymous"
+          />
+
+          {/* >>> Import CSS for nprogress */}
+          <link rel="stylesheet" type="text/css" href="/static/nprogress.css" />
+
           <title>Humilty | Portfolio Template | LJEsp</title>
         </Head>
 

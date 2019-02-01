@@ -39,9 +39,9 @@ const StyledSidebar = styled.section`
 `;
 
 const socialIcons = [
-  "fab fa-2x fa-github",
-  "fab fa-2x fa-linkedin",
-  "fab fa-2x fa-twitter"
+  { class: "fab fa-2x fa-github", href: "https://github.com/LJEsp" },
+  { class: "fab fa-2x fa-linkedin", href: "https://github.com/LJEsp" },
+  { class: "fab fa-2x fa-twitter", href: "https://github.com/LJEsp" }
 ];
 
 const navItems = ["Projects", "Templates", "Graphics", "Blog", "About Me"];
@@ -95,14 +95,14 @@ export default class extends Component {
                 config={config.stiff}
                 items={socialIcons}
                 native
-                keys={item => item}
+                keys={item => item.class}
                 from={{ opacity: "0" }}
                 to={{ opacity: "1" }}
               >
                 {social => props => (
-                  <Item style={props} animate padding="squish-m">
-                    <Button variant="icon-link">
-                      <i class={social} />
+                  <Item key={social.class} style={props} animate padding="squish-m">
+                    <Button variant="icon-link" href={social.href}>
+                      <i className={social.class} />
                     </Button>
                   </Item>
                 )}
@@ -120,7 +120,7 @@ export default class extends Component {
                 to={{ opacity: "1", transform: "translateX(0)" }}
               >
                 {item => props => (
-                  <Item style={props} animate padding="squish-m">
+                  <Item key={item} style={props} animate padding="squish-m">
                     <Button variant="text">{item}</Button>
                   </Item>
                 )}
