@@ -7,11 +7,7 @@ import { Item, Box, Container, Area } from "../components/layout";
 import dataProjects from "../data/projects";
 
 class project extends Component {
-  static async getInitialProps({ query, pathname }) {
-    const split = pathname.split("/");
-    const path = split[split.length - 1];
-    console.log(path);
-
+  static async getInitialProps({ query }) {
     const content = dataProjects.find(project => project.id == query.id);
 
     return { content };
