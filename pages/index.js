@@ -85,16 +85,10 @@ class index extends Component {
 
   showModal = (e, id) => {
     e.preventDefault();
-    console.log(id);
 
-    this.setState(
-      {
-        project: this.props.projects.find(project => project.id == id)
-      },
-      () => {
-        console.log(this.state);
-      }
-    );
+    this.setState({
+      project: this.props.projects.find(project => project.id == id)
+    });
     Router.push(`/?projectId=${id}`, `/project?id=${id}`);
   };
 
