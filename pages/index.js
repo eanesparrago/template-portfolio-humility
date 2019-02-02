@@ -14,17 +14,20 @@ const StyledWrapper = styled.div`
     min-width: ${p => p.theme.incrementFixed(12)};
   }
 
+  .item-wrapper-sidebar {
+    background-color: ${p => p.theme.color.white};
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    min-height: 100vh;
+    overflow-y: auto;
+  }
+
   .area-wrapper-card {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-  }
-
-  .item-wrapper-sidebar {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
   }
 `;
 
@@ -47,8 +50,14 @@ export default class extends Component {
               native
               items={cardList}
               keys={cardList => cardList}
-              from={{ transform: "scale(0.5) translateY(6em) translateX(6em)", opacity: "0" }}
-              to={{ transform: "scale(1) translateY(0) translateX(0)", opacity: "1" }}
+              from={{
+                transform: "scale(0.5) translateY(6em) translateX(6em)",
+                opacity: "0"
+              }}
+              to={{
+                transform: "scale(1) translateY(0) translateX(0)",
+                opacity: "1"
+              }}
             >
               {item => props => (
                 <Item key={item} style={props} animate margin="wrap-base">

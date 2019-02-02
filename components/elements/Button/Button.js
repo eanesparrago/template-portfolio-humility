@@ -6,7 +6,7 @@ import { Item } from "../../layout";
 
 const sizingProperties = css`
   width: ${p => p.full && "100%"};
-`
+`;
 
 const StyledButton = styled.button`
   ${sizingProperties}
@@ -32,7 +32,7 @@ const StyledButton = styled.button`
   }
 
   &:focus {
-    box-shadow: 0 0 0 var(--size-xxs) ${p => p.theme.color.primary.light};
+    box-shadow: 0 0 0 var(--size-xs) ${p => p.theme.color.primary.light};
   }
 `;
 

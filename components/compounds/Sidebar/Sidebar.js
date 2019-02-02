@@ -7,12 +7,11 @@ import { Button, Typography, Photo } from "../../elements";
 const StyledSidebar = styled.section`
   width: ${p => p.theme.incrementFixed(12)};
   text-align: center;
-  background-color: ${p => p.theme.color.white};
-  height: 100%;
+  /* height: 100%; */
   /* display: inline-flex; */
 
   .container-main {
-    height: 100%;
+    min-height: 100%;
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
