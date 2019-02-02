@@ -106,6 +106,8 @@ class index extends Component {
   render() {
     const { router, projects } = this.props;
 
+    console.log(router);
+
     return (
       <StyledWrapper>
         <Container name="wrapper-main">

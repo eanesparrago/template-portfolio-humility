@@ -4,14 +4,21 @@ import styled from "styled-components";
 import { Spring, Trail } from "react-spring";
 import { Sidebar, Card, Modal } from "../components/compounds";
 import { Item, Box, Container, Area } from "../components/layout";
+import dataProjects from "../data/projects";
 
 class project extends Component {
-  render() {
-    const content = this.props.projects.find(
-      project => project.id == this.props.router.query.id
-    );
+  static async getInitialProps({ query }) {
+    const content = dataProjects.find(project => project.id == query.id);
 
-    return <Modal content={content} />;
+    return { content };
+  }
+
+  render() {
+    // const content = this.props.projects.find(
+    //   project => project.id == this.props.router.query.id
+    // );
+
+    return <Modal content={this.props.content} />;
   }
 }
 
