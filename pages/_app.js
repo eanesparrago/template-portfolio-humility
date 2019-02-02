@@ -7,6 +7,7 @@ import NProgress from "nprogress";
 import Router from "next/router";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
 import style from "../config/style";
+import dataProjects from "../data/projects";
 
 // >>> Update progress bar on router events
 Router.events.on("routeChangeStart", url => {
@@ -148,7 +149,7 @@ export default class MyApp extends App {
         <ThemeProvider theme={style}>
           <Container>
             <GlobalStyle />
-            <Component {...pageProps} />
+            <Component {...pageProps} projects={dataProjects}/>
           </Container>
         </ThemeProvider>
       </Fragment>

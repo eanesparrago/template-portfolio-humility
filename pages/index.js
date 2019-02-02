@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { Transition, Trail } from "react-spring";
 import { Sidebar, Card, Modal } from "../components/compounds";
 import { Item, Box, Container, Area } from "../components/layout";
-import dataProjects from "../data/projects";
 
 const StyledWrapper = styled.div`
   .container-wrapper-main {
@@ -67,12 +66,6 @@ const StyledWrapper = styled.div`
 `;
 
 class index extends Component {
-  static getInitialProps() {
-    return {
-      projects: dataProjects
-    };
-  }
-
   state = {
     project: {}
   };
@@ -96,7 +89,7 @@ class index extends Component {
 
     this.setState(
       {
-        project: dataProjects.find(project => project.id == id)
+        project: this.props.projects.find(project => project.id == id)
       },
       () => {
         Router.push(`/?projectId=${id}`, `/project?id=${id}`);
