@@ -9,14 +9,25 @@ const StyledCard = styled.article`
   transition-duration: 200ms;
   transition-property: box-shadow;
   box-shadow: ${p => p.theme.shadow[1]};
+  display: flex;
+  flex-flow: column;
 
   &:hover {
     box-shadow: ${p => p.theme.shadow[2]};
+  }
+
+  .container-bottom {
+    flex-grow: 1;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
   }
 `;
 
 export default class extends Component {
   render() {
+    const { content, showModal } = this.props;
+
     return (
       <StyledCard>
         <Photo>
@@ -26,39 +37,38 @@ export default class extends Component {
           />
         </Photo>
 
-        <Container padding="inset-m">
-          <Item margin="stack-m">
-            <Typography variant="caption">Project</Typography>
-          </Item>
+        <Container name="bottom" padding="inset-m">
+          <Box column>
+            <Item margin="stack-m">
+              <Typography variant="caption">{content.category}</Typography>
+            </Item>
 
-          <Item margin="stack-base">
-            <Typography as="h3">Humility &mdash; Portfolio Template</Typography>
-          </Item>
+            <Item margin="stack-m">
+              <Typography as="h3">{content.title}</Typography>
+            </Item>
 
-          <Item margin="stack-base">
-            <Typography as="p">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
-              sequi quidem cumque at provident sapiente, ipsam fuga. Distinctio
-              ea numquam aliquid quo, ipsam molestias fugit quidem aliquam
-              quibusdam dolore quae!
-            </Typography>
-          </Item>
+            <Item margin="stack-base">
+              <Typography as="h4">{content.subtitle}</Typography>
+            </Item>
 
-          <Box column align="stretch">
+            <Item margin="stack-base">
+              <Typography as="p">{content.body}</Typography>
+            </Item>
+          </Box>
+
+          <Box name="buttons" column align="stretch">
             <Item margin="stack-s">
-              <Button variant="primary" full>
-                {/* <Item inline margin="inline-s">
-                  <i className="fab fa-github" />
-                </Item> */}
+              <Button
+                variant="primary"
+                full
+                onClick={e => showModal(e, content.id)}
+              >
                 View Project
               </Button>
             </Item>
 
             <Item>
               <Button variant="secondary" full>
-                {/* <Item inline margin="inline-s">
-                  <i className="fab fa-github" />
-                </Item> */}
                 Visit Demo
               </Button>
             </Item>

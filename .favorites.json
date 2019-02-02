@@ -129,5 +129,23 @@
         "workspaceRoot": null,
         "workspacePath": null,
         "id": "QuJoWD0Ygf2w5nyT"
+    },
+    {
+        "type": "File",
+        "name": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\components\\compounds\\Modal\\Modal.js",
+        "parent_id": "Azx3e15BquIvMT7i",
+        "fsPath": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\components\\compounds\\Modal\\Modal.js",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "aMidGp91LhDgItOR"
+    },
+    {
+        "type": "File",
+        "name": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\data\\projects.js",
+        "parent_id": null,
+        "fsPath": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\data\\projects.js",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "YkbLp1VnPTecG2x4"
     }
 ]

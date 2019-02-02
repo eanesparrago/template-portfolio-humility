@@ -20,7 +20,7 @@ export default class extends Component {
           </Container>
 
           <Container margin="stack-base">
-            <Typography as="body">
+            <Typography as="p">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo
               nulla perferendis ipsum, suscipit non fugiat quia consequuntur
               perspiciatis cumque impedit dolor eligendi necessitatibus! Fuga

@@ -5,10 +5,10 @@ import { Item, Box, Container, Area } from "../../layout";
 import { Button, Typography, Photo } from "../../elements";
 
 const StyledSidebar = styled.section`
-  width: ${p => p.theme.incrementFixed(12)};
+  /* width: ${p => p.theme.incrementFixed(12)}; */
   text-align: center;
-  /* height: 100%; */
-  /* display: inline-flex; */
+  width: 100%;
+  height: 100%;
 
   .container-main {
     min-height: 100%;
@@ -88,6 +88,26 @@ export default class extends Component {
                   margin="stack-base"
                 >
                   <Typography as="h3">Doctor Strangelove</Typography>
+                </Item>
+              )}
+            </Spring>
+
+            {/* >>> Name */}
+            <Spring
+              delay={400}
+              native
+              from={{ transform: "translateY(2em)", opacity: "0" }}
+              to={{ transform: "translateY(0)", opacity: "1" }}
+            >
+              {props => (
+                <Item
+                  name="name"
+                  style={props}
+                  animate
+                  center
+                  margin="stack-base"
+                >
+                  <Typography as="h4">Web Developer</Typography>
                 </Item>
               )}
             </Spring>

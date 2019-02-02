@@ -1,20 +1,31 @@
 import React, { Component, Fragment } from "react";
+import Router, { withRouter } from "next/router";
 import styled from "styled-components";
-import { Spring, Trail } from "react-spring";
-import { Sidebar, Card } from "../components/compounds";
+import { Transition, Trail } from "react-spring";
+import { Sidebar, Card, Modal } from "../components/compounds";
 import { Item, Box, Container, Area } from "../components/layout";
+import dataProjects from "../data/projects";
 
 const StyledWrapper = styled.div`
   .container-wrapper-main {
     display: flex;
     align-items: flex-start;
+
+    /* @media (max-width: ${p => p.theme.breakpoint.mobile}) {
+      flex-flow: column;
+    } */
   }
 
   .area-wrapper-sidebar {
     min-width: ${p => p.theme.incrementFixed(12)};
+
+    /* @media (max-width: ${p => p.theme.breakpoint.mobile}) {
+      min-width: 100%;
+    } */
   }
 
   .item-wrapper-sidebar {
+    max-width: ${p => p.theme.incrementFixed(12)};
     background-color: ${p => p.theme.color.white};
     position: fixed;
     top: 0;
@@ -22,12 +33,21 @@ const StyledWrapper = styled.div`
     bottom: 0;
     min-height: 100vh;
     overflow-y: auto;
+
+    /* @media (max-width: ${p => p.theme.breakpoint.mobile}) {
+      position: relative;
+      width: 100%;
+      min-height: auto;
+    } */
   }
 
   .area-wrapper-card {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
+    justify-items: center;
+    padding-right: 0;
+    position: relative;
   }
 
   .item-wrapper-card {
@@ -35,12 +55,70 @@ const StyledWrapper = styled.div`
     min-width: ${p => p.theme.incrementFixed(12)};
     max-width: ${p => p.theme.incrementFixed(16)};
   }
+
+  .container-modal {
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: ${p => p.theme.incrementFixed(12)};;
+    right: 0;
+    height: 100vh;
+  }
 `;
 
-const cardList = [1, 2, 3, 4, 5, 6, 7, 8];
+class index extends Component {
+  static getInitialProps() {
+    return {
+      projects: dataProjects
+    };
+  }
 
-export default class extends Component {
+  state = {
+    project: {}
+  };
+
+  constructor(props) {
+    super(props);
+    this.onKeyDown = this.onKeyDown.bind(this);
+  }
+
+  componentDidMount() {
+    document.addEventListener("keydown", this.onKeyDown);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.onKeyDown);
+  }
+
+  showModal = (e, id) => {
+    e.preventDefault();
+    console.log(id);
+
+    this.setState(
+      {
+        project: dataProjects.find(project => project.id == id)
+      },
+      () => {
+        Router.push(`/?projectId=${id}`, `/project?id=${id}`);
+        console.log(this.state);
+      }
+    );
+  };
+
+  dismissModal() {
+    Router.push("/");
+  }
+
+  onKeyDown(e) {
+    if (!this.props.router.query.projectId) return;
+    if (e.keyCode === 27) {
+      Router.back();
+    }
+  }
+
   render() {
+    const { router, projects } = this.props;
+
     return (
       <StyledWrapper>
         <Container name="wrapper-main">
@@ -51,11 +129,42 @@ export default class extends Component {
           </Area>
 
           <Area name="wrapper-card" padding="inset-base">
+            <Transition
+              native
+              items={router.query.projectId}
+              from={{ transform: "translate3d(0,110vh,0)" }}
+              enter={{ transform: "translate3d(0,0px,0)" }}
+              leave={{ transform: "translate3d(0,110vh,0)" }}
+            >
+              {show =>
+                show &&
+                (props => (
+                  <Container name="modal" animate style={props}>
+                    <Modal
+                      id={router.query.projectId}
+                      onDismiss={this.dismissModal}
+                      content={this.state.project}
+                    />
+                  </Container>
+                ))
+              }
+            </Transition>
+
+            {/* {router.query.projectId && (
+              <Container name="modal">
+                <Modal
+                  id={router.query.projectId}
+                  onDismiss={this.dismissModal}
+                  content={this.state.project}
+                />
+              </Container>
+            )} */}
+
             <Trail
               delay={800}
               native
-              items={cardList}
-              keys={cardList => cardList}
+              items={projects}
+              keys={project => project.id}
               from={{
                 transform: "scale(0.5) translateY(6em) translateX(6em)",
                 opacity: "0"
@@ -65,15 +174,15 @@ export default class extends Component {
                 opacity: "1"
               }}
             >
-              {item => props => (
+              {project => props => (
                 <Item
                   name="wrapper-card"
-                  key={item}
+                  key={project.id}
                   style={props}
                   animate
                   margin="wrap-base"
                 >
-                  <Card />
+                  <Card content={project} showModal={this.showModal} />
                 </Item>
               )}
             </Trail>
@@ -83,3 +192,5 @@ export default class extends Component {
     );
   }
 }
+
+export default withRouter(index);

@@ -12,6 +12,7 @@ export default {
     scale: {
       base: "1em", // >>> 16px
       p: "1.1875em", // >>> 19px
+      h4: "1.1875em", // >>> 24px
       h3: "1.5em", // >>> 24px
       h2: "2em", // >>> 32px
       h1: "3em" // >>> 48px

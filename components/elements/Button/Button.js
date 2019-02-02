@@ -68,7 +68,7 @@ const StyledButtonIconLink = styled.a`
 `;
 
 /*
-  variant: primary, secondary, text, icon, link
+  variant: primary, secondary, text, icon, icon-link, photo-link
 */
 
 export class Button extends Component {
@@ -88,6 +88,15 @@ export class Button extends Component {
           <StyledButtonText {...this.props}>
             <Item center padding="stretch-s">
               <Typography variant="button">{this.props.children}</Typography>
+            </Item>
+          </StyledButtonText>
+        );
+
+      case "icon":
+        return (
+          <StyledButtonText {...this.props}>
+            <Item center>
+              <Typography>{this.props.children}</Typography>
             </Item>
           </StyledButtonText>
         );

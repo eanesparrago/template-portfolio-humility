@@ -1,6 +1,8 @@
 import React, { Fragment } from "react";
 import App, { Container } from "next/app";
 import Head from "next/head";
+import { withRouter } from "next/router";
+
 import NProgress from "nprogress";
 import Router from "next/router";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
@@ -119,7 +121,7 @@ export default class MyApp extends App {
           <link rel="stylesheet" href="/static/destyle.css" />
 
           {/* >>> Google Fonts */}
-          
+
           <link
             href="https://fonts.googleapis.com/css?family=PT+Sans:400,700|PT+Serif:400,700"
             rel="stylesheet"
