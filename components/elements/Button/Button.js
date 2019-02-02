@@ -1,10 +1,16 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Typography from "../Typography/Typography";
 import { Item } from "../../layout";
 
+const sizingProperties = css`
+  width: ${p => p.full && "100%"};
+`
+
 const StyledButton = styled.button`
+  ${sizingProperties}
+
   background-color: ${p =>
     (p.variant === "primary" && p.theme.color.primary.main) ||
     (p.variant === "secondary" && p.theme.color.grey.dark)};

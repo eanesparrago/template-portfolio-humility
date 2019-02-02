@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import textCrop from "../../utils/textCrop";
 
-// body
+// p
 // button
 // caption
 // subtitle
@@ -18,18 +18,22 @@ import textCrop from "../../utils/textCrop";
 // "3em", // >>> 48px
 const StyledTypography = styled.span`
   /* ${textCrop()} */
-  ${p => (p.as === "body" ? textCrop(p.theme.font.lineHeight) : textCrop())}
+  ${p => (p.as === "p" ? textCrop(p.theme.font.lineHeight) : textCrop())}
 
   font-size: ${p =>
     (p.as === "h1" && p.theme.font.scale.h1) ||
     (p.as === "h2" && p.theme.font.scale.h2) ||
     (p.as === "h3" && p.theme.font.scale.h3) ||
-    (p.as === "body" && p.theme.font.scale.body) ||
+    (p.as === "p" && p.theme.font.scale.p) ||
     (p.variant === "caption" && p.theme.font.scale.base) ||
     (p.variant === "button" && p.theme.font.scale.base)};
-  font-weight: ${p => (p.as === "h3" && "700") || (p.variant === "button" && "700")};
-  text-transform: ${p => p.variant === "button" && "uppercase"};
-  letter-spacing: ${p => p.variant === "button" && p.theme.font.letterSpacing};
+  font-weight: ${p =>
+    (p.as === "h3" && "700") || (p.variant === "button" && "700")};
+  text-transform: ${p =>
+    (p.variant === "button" || p.variant === "caption") && "uppercase"};
+  letter-spacing: ${p =>
+    (p.variant === "button" || p.variant === "caption") &&
+    p.theme.font.letterSpacing};
 
   
 `;

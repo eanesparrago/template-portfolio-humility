@@ -27,10 +27,13 @@ const StyledSidebar = styled.section`
   }
 
   .item-social {
-    /* width:  */
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-font-smoothing: subpixel-antialiased;
   }
 
   .box-copyright {
+    margin: 0 auto;
   }
 
   .item-lje {
@@ -89,6 +92,7 @@ export default class extends Component {
               )}
             </Spring>
 
+            {/* >>> Social links */}
             <Box wrap margin="stack-base" justify="center">
               <Trail
                 delay={600}
@@ -100,7 +104,13 @@ export default class extends Component {
                 to={{ opacity: "1" }}
               >
                 {social => props => (
-                  <Item key={social.class} style={props} animate padding="squish-m">
+                  <Item
+                    name="social"
+                    key={social.class}
+                    style={props}
+                    animate
+                    padding="squish-m"
+                  >
                     <Button variant="icon-link" href={social.href}>
                       <i className={social.class} />
                     </Button>
@@ -109,7 +119,8 @@ export default class extends Component {
               </Trail>
             </Box>
 
-            <Box column>
+            {/* >>> Nav */}
+            <Box column as="nav" margin="stack-base">
               <Trail
                 delay={800}
                 config={config.stiff}

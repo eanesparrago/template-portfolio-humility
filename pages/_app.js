@@ -93,11 +93,6 @@ export default class MyApp extends App {
             content="initial-scale=1.0, width=device-width"
           />
 
-          <meta
-            name="thumbnail"
-            content="http://www.example.com/recipes/applepie/applepie.jpg"
-          />
-
           {/* >>> Favicon */}
           <link
             rel="apple-touch-icon"
@@ -124,8 +119,13 @@ export default class MyApp extends App {
           <link rel="stylesheet" href="/static/destyle.css" />
 
           {/* >>> Google Fonts */}
+          
           <link
             href="https://fonts.googleapis.com/css?family=PT+Sans:400,700|PT+Serif:400,700"
+            rel="stylesheet"
+          />
+          <link
+            href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
             rel="stylesheet"
           />
 
