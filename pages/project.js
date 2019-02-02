@@ -18,6 +18,8 @@ class project extends Component {
     //   project => project.id == this.props.router.query.id
     // );
 
+    console.log(this.props.router)
+
     return <Modal content={this.props.content} />;
   }
 }
