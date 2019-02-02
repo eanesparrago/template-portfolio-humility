@@ -5,7 +5,7 @@ const copyFile = promisify(fs.copyFile);
 
 const map = {
   "/": { page: "/" },
-  "/project?id=0": { page: "/project", query: { id: "0" } }
+  "/project/test": { page: "/project", query: { id: "0" } }
 };
 
 module.exports = {
