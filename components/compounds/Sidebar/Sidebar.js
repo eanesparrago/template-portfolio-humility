@@ -72,6 +72,7 @@ export default class extends Component {
               )}
             </Spring>
 
+            {/* >>> Name */}
             <Spring
               delay={200}
               native

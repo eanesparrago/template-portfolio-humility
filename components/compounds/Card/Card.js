@@ -5,8 +5,6 @@ import { Item, Box, Container, Area } from "../../layout";
 import { Button, Typography, Photo } from "../../elements";
 
 const StyledCard = styled.article`
-  min-width: ${p => p.theme.incrementFixed(12)};
-  max-width: ${p => p.theme.incrementFixed(16)};
   background-color: ${p => p.theme.color.white};
   transition-duration: 200ms;
   transition-property: box-shadow;
@@ -49,12 +47,18 @@ export default class extends Component {
           <Box column align="stretch">
             <Item margin="stack-s">
               <Button variant="primary" full>
+                {/* <Item inline margin="inline-s">
+                  <i className="fab fa-github" />
+                </Item> */}
                 View Project
               </Button>
             </Item>
 
             <Item>
               <Button variant="secondary" full>
+                {/* <Item inline margin="inline-s">
+                  <i className="fab fa-github" />
+                </Item> */}
                 Visit Demo
               </Button>
             </Item>

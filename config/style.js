@@ -37,18 +37,18 @@ export default {
   //   },
   //   light: "#212121",
   //   dark: "#FAFAFA",
-  //   white: "#FFFFFF",
-  //   black: "#000000",
+  //   white: "#000000",
+  //   black: "#FAFAFA",
   //   grey: {
-  //     light: "#F5F5F5",
+  //     light: "#424242",
   //     medium: "#9E9E9E",
-  //     dark: "#424242"
+  //     dark: "#F5F5F5F5"
   //   }
   // },
   color: {
     primary: {
-      main: "#1E88E5",
       light: "#64B5F6",
+      main: "#1E88E5",
       dark: "#0D47A1"
     },
     seconday: {

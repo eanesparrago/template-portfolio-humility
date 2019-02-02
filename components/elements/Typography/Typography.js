@@ -20,6 +20,8 @@ const StyledTypography = styled.span`
   /* ${textCrop()} */
   ${p => (p.as === "p" ? textCrop(p.theme.font.lineHeight) : textCrop())}
 
+  font-family: ${p => p.as === "h3" && p.theme.font.serif};
+
   font-size: ${p =>
     (p.as === "h1" && p.theme.font.scale.h1) ||
     (p.as === "h2" && p.theme.font.scale.h2) ||

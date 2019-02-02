@@ -124,7 +124,7 @@ const spacingProperties = ({
   const wrapXlMobile = `0 ${sizeMobile.xl} ${sizeMobile.xl} 0`;
 
   return css`
-    padding: ${(padding === "inset-base" && insetL) ||
+    padding: ${(padding === "inset-base" && insetBase) ||
       (padding === "inset-xs" && insetXs) ||
       (padding === "inset-s" && insetS) ||
       (padding === "inset-m" && insetM) ||
@@ -157,7 +157,7 @@ const spacingProperties = ({
       (margin === "wrap-xl" && wrapXl)};
 
     @media (max-width: 45em) {
-      padding: ${(padding === "inset-base" && insetLMobile) ||
+      padding: ${(padding === "inset-base" && insetBaseMobile) ||
         (padding === "inset-xs" && insetXsMobile) ||
         (padding === "inset-s" && insetSMobile) ||
         (padding === "inset-m" && insetMMobile) ||

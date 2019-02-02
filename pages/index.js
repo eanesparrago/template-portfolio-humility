@@ -29,6 +29,12 @@ const StyledWrapper = styled.div`
     flex-flow: row wrap;
     justify-content: center;
   }
+
+  .item-wrapper-card {
+    /* border: 1px solid magenta; */
+    min-width: ${p => p.theme.incrementFixed(12)};
+    max-width: ${p => p.theme.incrementFixed(16)};
+  }
 `;
 
 const cardList = [1, 2, 3, 4, 5, 6, 7, 8];
@@ -60,7 +66,13 @@ export default class extends Component {
               }}
             >
               {item => props => (
-                <Item key={item} style={props} animate margin="wrap-base">
+                <Item
+                  name="wrapper-card"
+                  key={item}
+                  style={props}
+                  animate
+                  margin="wrap-base"
+                >
                   <Card />
                 </Item>
               )}
