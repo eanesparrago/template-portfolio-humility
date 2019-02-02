@@ -5,11 +5,11 @@ const copyFile = promisify(fs.copyFile);
 
 const map = {
   "/": { page: "/" },
-  "/project/1": { page: "/project", query: { id: "0" } },
-  "/project/1": { page: "/project", query: { id: "1" } },
-  "/project/2": { page: "/project", query: { id: "2" } },
-  "/project/3": { page: "/project", query: { id: "3" } },
-  "/project/4": { page: "/project", query: { id: "4" } }
+  "/project?id=0": { page: "/", query: { id: "0" } },
+  "/project?id=1": { page: "/", query: { id: "1" } },
+  "/project?id=2": { page: "/", query: { id: "2" } },
+  "/project?id=3": { page: "/", query: { id: "3" } },
+  "/project?id=4": { page: "/", query: { id: "4" } }
 };
 
 module.exports = {

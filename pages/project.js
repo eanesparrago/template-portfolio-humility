@@ -7,7 +7,11 @@ import { Item, Box, Container, Area } from "../components/layout";
 import dataProjects from "../data/projects";
 
 class project extends Component {
-  static async getInitialProps({ query }) {
+  static async getInitialProps({ query, pathname }) {
+    const split = pathname.split("/");
+    const path = split[split.length - 1];
+    console.log(path);
+
     const content = dataProjects.find(project => project.id == query.id);
 
     return { content };
@@ -18,7 +22,7 @@ class project extends Component {
     //   project => project.id == this.props.router.query.id
     // );
 
-    console.log(this.props.router)
+    console.log(this.props.router);
 
     return <Modal content={this.props.content} />;
   }

@@ -66,6 +66,11 @@ const StyledWrapper = styled.div`
 `;
 
 class index extends Component {
+  state = {
+    project: {},
+    isModalOpen: false
+  };
+
   constructor(props) {
     super(props);
     this.onKeyDown = this.onKeyDown.bind(this);
@@ -85,24 +90,19 @@ class index extends Component {
     this.setState({
       project: this.props.projects.find(project => project.id == id)
     });
-    Router.push(`/?projectId=${id}`, `/project/${id}`);
+    Router.push(`/?projectId=${id}`, `/project?id=${id}`);
   };
 
-  // showModal = (e, id) => {
-  //   e.preventDefault();
-
-  //   this.setState({
-  //     project: this.props.projects.find(project => project.id == id)
-  //   });
-  //   Router.push(`/?projectId=${id}`, `/project/${id}`);
-  // };
-
-  dismissModal() {
+  dismissModal = () => {
+    this.setState({
+      project: {},
+      isModalOpen: false
+    });
     Router.push("/");
-  }
+  };
 
   onKeyDown(e) {
-    if (!this.props.router.query.projectId) return;
+    if (!this.props.router.query.id) return;
     if (e.keyCode === 27) {
       Router.back();
     }
@@ -111,7 +111,7 @@ class index extends Component {
   render() {
     const { router, projects } = this.props;
 
-    console.log(router);
+    // console.log(router);
 
     return (
       <StyledWrapper>
