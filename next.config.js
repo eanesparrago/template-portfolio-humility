@@ -18,8 +18,6 @@ module.exports = {
     }
     // This will copy _redirects from project root into the out directory
     await copyFile(join(dir, "_redirects"), join(outDir, "_redirects"));
-    return {
-      map
-    };
+    return map;
   }
 };
