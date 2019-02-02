@@ -84,6 +84,17 @@ class index extends Component {
     document.removeEventListener("keydown", this.onKeyDown);
   }
 
+  // >>> Dynamic
+  // showModal = (e, id) => {
+  //   e.preventDefault();
+
+  //   this.setState({
+  //     project: this.props.projects.find(project => project.id == id)
+  //   });
+  //   Router.push(`/?projectId=${id}`, `/project?id=${id}`);
+  // };
+
+  // >>> Static
   showModal = (e, id) => {
     e.preventDefault();
 
@@ -95,7 +106,7 @@ class index extends Component {
 
   dismissModal = () => {
     this.setState({
-      project: {},
+      // project: {},
       isModalOpen: false
     });
     Router.push("/");
@@ -110,8 +121,6 @@ class index extends Component {
 
   render() {
     const { router, projects } = this.props;
-
-    // console.log(router);
 
     return (
       <StyledWrapper>
@@ -143,16 +152,6 @@ class index extends Component {
                 ))
               }
             </Transition>
-
-            {/* {router.query.projectId && (
-              <Container name="modal">
-                <Modal
-                  id={router.query.projectId}
-                  onDismiss={this.dismissModal}
-                  content={this.state.project}
-                />
-              </Container>
-            )} */}
 
             <Trail
               delay={800}

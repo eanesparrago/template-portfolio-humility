@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { Spring, Trail, Transition } from "react-spring";
 import { Item, Box, Container, Area } from "../../layout";
 import { Button, Typography, Photo } from "../../elements";
-import { withRouter } from "next/router";
 
 const StyledModal = styled.div`
   .container-modal-background {
@@ -56,25 +56,12 @@ const StyledModal = styled.div`
 `;
 
 class Modal extends Component {
-  // dismiss(e) {
-  //   if (this.props.onDismiss) {
-  //     this.props.onDismiss();
-  //   }
-  //   console.log("test");
-  // }
-
   render() {
     const { content, onDismiss } = this.props;
 
     return (
       <StyledModal>
         <Container name="modal-background" />
-
-        <Container name="modal-close" padding="inset-base">
-          <Button variant="icon" onClick={onDismiss}>
-            <i className="fas fa-2x fa-times" />
-          </Button>
-        </Container>
 
         <Container name="modal-main">
           <Area name="modal-photos">
@@ -123,6 +110,12 @@ class Modal extends Component {
           </Area>
 
           <Area name="modal-detail" padding="inset-base">
+            <Container name="modal-close" padding="inset-base">
+              <Button variant="icon" onClick={onDismiss}>
+                <i className="fas fa-2x fa-times" />
+              </Button>
+            </Container>
+
             <Item margin="stack-l">
               <Typography variant="caption">{content.category}</Typography>
             </Item>
@@ -157,4 +150,4 @@ class Modal extends Component {
   }
 }
 
-export default withRouter(Modal);
+export default Modal;

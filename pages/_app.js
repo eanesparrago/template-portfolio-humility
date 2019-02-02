@@ -148,6 +148,7 @@ export default class MyApp extends App {
         <ThemeProvider theme={style}>
           <Container>
             <GlobalStyle />
+
             <Component projects={dataProjects} {...pageProps} />
           </Container>
         </ThemeProvider>
