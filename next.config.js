@@ -3,6 +3,10 @@ const { join } = require("path");
 const { promisify } = require("util");
 const copyFile = promisify(fs.copyFile);
 
+const map = {
+  "/": { page: "/" }
+};
+
 module.exports = {
   exportPathMap: async function(
     defaultPathMap,
@@ -13,6 +17,8 @@ module.exports = {
     }
     // This will copy _redirects from project root into the out directory
     await copyFile(join(dir, "_redirects"), join(outDir, "_redirects"));
-    return defaultPathMap;
+    return {
+      "/": { page: "/" }
+    };
   }
 };

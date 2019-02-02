@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import { Spring, Trail, config } from "react-spring";
 import { Item, Box, Container, Area } from "../../layout";
 import { Button, Typography, Photo } from "../../elements";
 import { withRouter } from "next/router";
@@ -57,12 +56,12 @@ const StyledModal = styled.div`
 `;
 
 class Modal extends Component {
-  dismiss(e) {
-    if (this.props.onDismiss) {
-      this.props.onDismiss();
-    }
-    console.log("test");
-  }
+  // dismiss(e) {
+  //   if (this.props.onDismiss) {
+  //     this.props.onDismiss();
+  //   }
+  //   console.log("test");
+  // }
 
   render() {
     const { content, onDismiss } = this.props;

@@ -92,10 +92,10 @@ class index extends Component {
         project: this.props.projects.find(project => project.id == id)
       },
       () => {
-        Router.push(`/?projectId=${id}`, `/project?id=${id}`);
         console.log(this.state);
       }
     );
+    Router.push(`/?projectId=${id}`, `/project?id=${id}`);
   };
 
   dismissModal() {

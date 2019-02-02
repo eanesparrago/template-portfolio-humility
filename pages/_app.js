@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 import App, { Container } from "next/app";
 import Head from "next/head";
-import { withRouter } from "next/router";
 
 import NProgress from "nprogress";
 import Router from "next/router";
@@ -137,7 +136,7 @@ export default class MyApp extends App {
             rel="stylesheet"
             href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
             integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
-            crossorigin="anonymous"
+            crossOrigin="anonymous"
           />
 
           {/* >>> Import CSS for nprogress */}
@@ -149,7 +148,7 @@ export default class MyApp extends App {
         <ThemeProvider theme={style}>
           <Container>
             <GlobalStyle />
-            <Component {...pageProps} projects={dataProjects}/>
+            <Component projects={dataProjects} {...pageProps} />
           </Container>
         </ThemeProvider>
       </Fragment>
