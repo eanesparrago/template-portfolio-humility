@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Item, Container, Area } from "../../components/layout";
-import { Typography, Button } from "../../components/elements";
+import { Item, Container, Area } from "../components/layout";
+import { Typography, Button } from "../components/elements";
 
 export default class extends Component {
   render() {
