@@ -2,9 +2,9 @@ import React, { Component, Fragment } from "react";
 import Router, { withRouter } from "next/router";
 import styled from "styled-components";
 import { Spring, Transition, Trail, config } from "react-spring";
-import { Sidebar, Card, Modal } from "../compounds";
-import { Item, Box, Container, Area } from "../layout";
-import { NavStatusBarContainer } from "../containers";
+import { Sidebar, Card, Modal } from "../../components/compounds";
+import { Item, Box, Container, Area } from "../../components/layout";
+import { NavStatusBarContainer } from "../../containers";
 
 
 const StyledWrapper = styled.div`

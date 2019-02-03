@@ -1,3 +1,3 @@
-import project from "../src/pages/project";
+import project from "../src/pages/Project/Project";
 
 export default project;

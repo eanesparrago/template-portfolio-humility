@@ -6,7 +6,7 @@ import NProgress from "nprogress";
 import Router from "next/router";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
 import style from "../config/style";
-import dataProjects from "../data/projects";
+import dataProjects from "../src/data/projects";
 
 // >>> Update progress bar on router events
 Router.events.on("routeChangeStart", url => {
