@@ -1,3 +1,3 @@
-import project from "../components/pages/project";
+import project from "../src/pages/project";
 
 export default project;
