@@ -2,6 +2,7 @@ export default [
   {
     id: 0,
     category: "Template",
+    date: "January 2019",
     title: "Humility",
     subtitle: "Portfolio Template",
     body:
@@ -10,6 +11,7 @@ export default [
   {
     id: 1,
     category: "Template",
+    date: "January 2019",
     title: "Curiosity",
     subtitle: "Portfolio Template",
     body:
@@ -18,6 +20,7 @@ export default [
   {
     id: 2,
     category: "Template",
+    date: "January 2019",
     title: "Empathy",
     subtitle: "Portfolio Template",
     body:
@@ -26,6 +29,7 @@ export default [
   {
     id: 3,
     category: "Template",
+    date: "January 2019",
     title: "Discipline",
     subtitle: "Portfolio Template",
     body:
@@ -34,6 +38,7 @@ export default [
   {
     id: 4,
     category: "Template",
+    date: "January 2019",
     title: "Patience",
     subtitle: "Portfolio Template",
     body:

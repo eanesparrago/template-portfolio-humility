@@ -1,5 +1,6 @@
 import Sidebar from "./Sidebar/Sidebar";
-import Card from "./Card/Card";
+import CardProject from "./Card/CardProject";
 import Modal from "./Modal/Modal";
+import NavStatusBar from "./NavStatusBar/NavStatusBar";
 
-export { Sidebar, Card, Modal };
+export { Sidebar, CardProject as Card, Modal, NavStatusBar };

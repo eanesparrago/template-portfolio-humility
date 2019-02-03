@@ -156,5 +156,49 @@
         "workspaceRoot": null,
         "workspacePath": null,
         "id": "mWqp5Bi18gsUOQ6Z"
+    },
+    {
+        "type": "Directory",
+        "name": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\data",
+        "parent_id": null,
+        "fsPath": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\data",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "9knxByghRwj3qY25"
+    },
+    {
+        "type": "File",
+        "name": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\components\\compounds\\index.js",
+        "parent_id": "Azx3e15BquIvMT7i",
+        "fsPath": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\components\\compounds\\index.js",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "jTymHQtd9U7cxrA1"
+    },
+    {
+        "type": "Group",
+        "name": "containers",
+        "parent_id": "dJSxtiz0wTV25kOY",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "wp0MlaiN7vIrnCkH"
+    },
+    {
+        "type": "File",
+        "name": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\components\\containers\\NavStatusBarContainer.js",
+        "parent_id": "wp0MlaiN7vIrnCkH",
+        "fsPath": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\components\\containers\\NavStatusBarContainer.js",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "AeRsdZP6apOXoiJ3"
+    },
+    {
+        "type": "File",
+        "name": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\components\\containers\\index.js",
+        "parent_id": "wp0MlaiN7vIrnCkH",
+        "fsPath": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\components\\containers\\index.js",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "HxI3URm6Ch8zLVJM"
     }
 ]

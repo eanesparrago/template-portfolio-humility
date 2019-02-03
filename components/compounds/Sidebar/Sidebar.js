@@ -46,7 +46,7 @@ const socialIcons = [
   { class: "fab fa-2x fa-twitter", href: "https://github.com/LJEsp" }
 ];
 
-const navItems = ["Projects", "Templates", "Graphics", "Blog", "About Me"];
+const navItems = ["Projects", "Skills", "About Me"];
 
 export default class extends Component {
   render() {
@@ -61,7 +61,7 @@ export default class extends Component {
               to={{ opacity: "1", transform: "rotate(0deg)" }}
             >
               {props => (
-                <Item style={props} name="photo" animate margin="stack-base">
+                <Item name="photo" animate={props} margin="stack-base">
                   <Photo rounded>
                     <img
                       src="http://images.amcnetworks.com/ifccenter.com/wp-content/uploads/2016/12/dr-strangelove_1280x720.jpg"
@@ -80,19 +80,13 @@ export default class extends Component {
               to={{ opacity: "1", transform: "translateY(0em)" }}
             >
               {props => (
-                <Item
-                  name="name"
-                  style={props}
-                  animate
-                  center
-                  margin="stack-base"
-                >
+                <Item name="name" animate={props} center margin="stack-base">
                   <Typography as="h3">Doctor Strangelove</Typography>
                 </Item>
               )}
             </Spring>
 
-            {/* >>> Name */}
+            {/* >>> Title */}
             <Spring
               delay={400}
               native
@@ -100,13 +94,7 @@ export default class extends Component {
               to={{ transform: "translateY(0)", opacity: "1" }}
             >
               {props => (
-                <Item
-                  name="name"
-                  style={props}
-                  animate
-                  center
-                  margin="stack-base"
-                >
+                <Item name="name" animate={props} center margin="stack-base">
                   <Typography as="h4">Web Developer</Typography>
                 </Item>
               )}
@@ -127,8 +115,7 @@ export default class extends Component {
                   <Item
                     name="social"
                     key={social.class}
-                    style={props}
-                    animate
+                    animate={props}
                     padding="squish-m"
                   >
                     <Button variant="icon-link" href={social.href}>
@@ -151,7 +138,7 @@ export default class extends Component {
                 to={{ opacity: "1", transform: "translateX(0)" }}
               >
                 {item => props => (
-                  <Item key={item} style={props} animate padding="squish-m">
+                  <Item key={item} animate={props} padding="squish-m">
                     <Button variant="text">{item}</Button>
                   </Item>
                 )}
@@ -167,7 +154,7 @@ export default class extends Component {
             to={{ transform: "translateY(0)" }}
           >
             {props => (
-              <Box name="copyright" style={props} animate align="center">
+              <Box name="copyright" animate={props} align="center">
                 <Item margin="inline-m">
                   <Typography>Made by LJEsp</Typography>
                 </Item>

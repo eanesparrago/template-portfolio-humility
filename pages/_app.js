@@ -73,7 +73,7 @@ const GlobalStyle = createGlobalStyle`
     }
     
     @media (min-width: ${style.breakpoint.desktopXXL}) {
-    font-size: 21px;
+    font-size: 24px;
     }
   }
 
@@ -104,7 +104,7 @@ const GlobalStyle = createGlobalStyle`
     }
     
     @media (min-width: ${style.breakpoint.desktopXXL}) {
-      font-size: 24px;
+      font-size: 28px;
     } 
   }
 
