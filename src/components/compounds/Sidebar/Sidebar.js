@@ -25,6 +25,10 @@ const StyledSidebar = styled.section`
     z-index: 1;
   }
 
+  .item-name {
+    color: ${p => p.theme.color.primary.dark};
+  }
+
   .item-social {
     backface-visibility: hidden;
     transform: translateZ(0);
@@ -94,7 +98,7 @@ export default class extends Component {
               to={{ transform: "translateY(0)", opacity: "1" }}
             >
               {props => (
-                <Item name="name" animate={props} center margin="stack-base">
+                <Item animate={props} center margin="stack-base">
                   <Typography as="h4">Web Developer</Typography>
                 </Item>
               )}

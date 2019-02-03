@@ -23,6 +23,10 @@ const StyledCard = styled.article`
     flex-flow: column;
     justify-content: space-between;
   }
+
+  .item-title {
+    color: ${p => p.theme.color.primary.dark};
+  }
 `;
 
 export default class extends Component {
@@ -62,7 +66,7 @@ export default class extends Component {
               </Item>
             </Box>
 
-            <Item margin="stack-m">
+            <Item name="title" margin="stack-m">
               <Typography as="h3">{content.title}</Typography>
             </Item>
 

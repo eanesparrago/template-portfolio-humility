@@ -58,6 +58,10 @@ const StyledModal = styled.div`
     right: 0;
     z-index: 102;
   }
+
+  .item-modal-title {
+    color: ${p => p.theme.color.primary.dark};
+  }
 `;
 
 class Modal extends Component {
@@ -125,7 +129,7 @@ class Modal extends Component {
               <Typography variant="caption">{content.category}</Typography>
             </Item>
 
-            <Item margin="stack-m">
+            <Item name="modal-title" margin="stack-m">
               <Typography as="h1">{content.title}</Typography>
             </Item>
 

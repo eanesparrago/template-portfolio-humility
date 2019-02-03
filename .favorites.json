@@ -1,82 +1,5 @@
 [
     {
-        "type": "Group",
-        "name": "components",
-        "parent_id": null,
-        "workspaceRoot": null,
-        "workspacePath": null,
-        "id": "dJSxtiz0wTV25kOY"
-    },
-    {
-        "type": "Group",
-        "name": "pages",
-        "parent_id": null,
-        "workspaceRoot": null,
-        "workspacePath": null,
-        "id": "aBp93WJ0KUAgV2iY"
-    },
-    {
-        "type": "Group",
-        "name": "elements",
-        "parent_id": "dJSxtiz0wTV25kOY",
-        "workspaceRoot": null,
-        "workspacePath": null,
-        "id": "7EmY8OSI9xvaqfDA"
-    },
-    {
-        "type": "Group",
-        "name": "compounds",
-        "parent_id": "dJSxtiz0wTV25kOY",
-        "workspaceRoot": null,
-        "workspacePath": null,
-        "id": "Azx3e15BquIvMT7i"
-    },
-    {
-        "type": "File",
-        "name": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\components\\compounds\\Card\\Card.js",
-        "parent_id": "Azx3e15BquIvMT7i",
-        "fsPath": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\components\\compounds\\Card\\Card.js",
-        "workspaceRoot": null,
-        "workspacePath": null,
-        "id": "8R6oF2UviWkDOxay"
-    },
-    {
-        "type": "File",
-        "name": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\components\\compounds\\Sidebar\\Sidebar.js",
-        "parent_id": "Azx3e15BquIvMT7i",
-        "fsPath": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\components\\compounds\\Sidebar\\Sidebar.js",
-        "workspaceRoot": null,
-        "workspacePath": null,
-        "id": "Ba4Kxs7REUm65W3t"
-    },
-    {
-        "type": "File",
-        "name": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\components\\elements\\Button\\Button.js",
-        "parent_id": "7EmY8OSI9xvaqfDA",
-        "fsPath": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\components\\elements\\Button\\Button.js",
-        "workspaceRoot": null,
-        "workspacePath": null,
-        "id": "YqwZofbusFNlKp5W"
-    },
-    {
-        "type": "File",
-        "name": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\components\\elements\\Photo\\Photo.js",
-        "parent_id": "7EmY8OSI9xvaqfDA",
-        "fsPath": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\components\\elements\\Photo\\Photo.js",
-        "workspaceRoot": null,
-        "workspacePath": null,
-        "id": "VRhvzBj6k92xUFbl"
-    },
-    {
-        "type": "File",
-        "name": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\components\\elements\\Typography\\Typography.js",
-        "parent_id": "7EmY8OSI9xvaqfDA",
-        "fsPath": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\components\\elements\\Typography\\Typography.js",
-        "workspaceRoot": null,
-        "workspacePath": null,
-        "id": "UVMzdbx0fqXmBg9P"
-    },
-    {
         "type": "File",
         "name": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\config\\style.js",
         "parent_id": null,
@@ -84,24 +7,6 @@
         "workspaceRoot": null,
         "workspacePath": null,
         "id": "KCVyAmlRnMo62EUr"
-    },
-    {
-        "type": "File",
-        "name": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\pages\\index.js",
-        "parent_id": "aBp93WJ0KUAgV2iY",
-        "fsPath": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\pages\\index.js",
-        "workspaceRoot": null,
-        "workspacePath": null,
-        "id": "RsofTLm87ixUtNnQ"
-    },
-    {
-        "type": "File",
-        "name": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\pages\\components.js",
-        "parent_id": "aBp93WJ0KUAgV2iY",
-        "fsPath": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\pages\\components.js",
-        "workspaceRoot": null,
-        "workspacePath": null,
-        "id": "4NEMi10AfdkgypWn"
     },
     {
         "type": "File",
@@ -131,74 +36,39 @@
         "id": "QuJoWD0Ygf2w5nyT"
     },
     {
-        "type": "File",
-        "name": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\components\\compounds\\Modal\\Modal.js",
-        "parent_id": "Azx3e15BquIvMT7i",
-        "fsPath": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\components\\compounds\\Modal\\Modal.js",
-        "workspaceRoot": null,
-        "workspacePath": null,
-        "id": "aMidGp91LhDgItOR"
-    },
-    {
-        "type": "File",
-        "name": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\data\\projects.js",
+        "type": "Directory",
+        "name": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\src\\containers",
         "parent_id": null,
-        "fsPath": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\data\\projects.js",
+        "fsPath": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\src\\containers",
         "workspaceRoot": null,
         "workspacePath": null,
-        "id": "YkbLp1VnPTecG2x4"
-    },
-    {
-        "type": "File",
-        "name": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\pages\\project.js",
-        "parent_id": "aBp93WJ0KUAgV2iY",
-        "fsPath": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\pages\\project.js",
-        "workspaceRoot": null,
-        "workspacePath": null,
-        "id": "mWqp5Bi18gsUOQ6Z"
+        "id": "1djnwGRXPSL2hIoF"
     },
     {
         "type": "Directory",
-        "name": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\data",
+        "name": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\src\\components\\compounds",
         "parent_id": null,
-        "fsPath": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\data",
+        "fsPath": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\src\\components\\compounds",
         "workspaceRoot": null,
         "workspacePath": null,
-        "id": "9knxByghRwj3qY25"
+        "id": "7AOniXIHrfVUgSdW"
     },
     {
-        "type": "File",
-        "name": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\components\\compounds\\index.js",
-        "parent_id": "Azx3e15BquIvMT7i",
-        "fsPath": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\components\\compounds\\index.js",
+        "type": "Directory",
+        "name": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\src\\components\\elements",
+        "parent_id": null,
+        "fsPath": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\src\\components\\elements",
         "workspaceRoot": null,
         "workspacePath": null,
-        "id": "jTymHQtd9U7cxrA1"
+        "id": "eqWtQkzlO8JHsn0h"
     },
     {
-        "type": "Group",
-        "name": "containers",
-        "parent_id": "dJSxtiz0wTV25kOY",
+        "type": "Directory",
+        "name": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\src\\pages",
+        "parent_id": null,
+        "fsPath": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\src\\pages",
         "workspaceRoot": null,
         "workspacePath": null,
-        "id": "wp0MlaiN7vIrnCkH"
-    },
-    {
-        "type": "File",
-        "name": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\components\\containers\\NavStatusBarContainer.js",
-        "parent_id": "wp0MlaiN7vIrnCkH",
-        "fsPath": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\components\\containers\\NavStatusBarContainer.js",
-        "workspaceRoot": null,
-        "workspacePath": null,
-        "id": "AeRsdZP6apOXoiJ3"
-    },
-    {
-        "type": "File",
-        "name": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\components\\containers\\index.js",
-        "parent_id": "wp0MlaiN7vIrnCkH",
-        "fsPath": "c:\\Users\\LJE\\Documents\\GitHub\\_projects\\_templates\\template-portfolio-humility\\components\\containers\\index.js",
-        "workspaceRoot": null,
-        "workspacePath": null,
-        "id": "HxI3URm6Ch8zLVJM"
+        "id": "wDgNp6SmvjAuRcI1"
     }
 ]

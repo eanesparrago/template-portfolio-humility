@@ -40,10 +40,8 @@ const StyledTypography = styled.span`
     (p.variant === "button" || p.variant === "caption") &&
     p.theme.font.letterSpacing};
 
-  color:  ${p =>
-    (p.as === "h1" || p.as === "h3") &&
-    p.theme.color.primary.dark};
-
+  /* color:  ${p =>
+    (p.as === "h1" || p.as === "h3") && p.theme.color.primary.dark}; */
   
 `;
 
