@@ -1,3 +1,3 @@
-import components from "../components/pages/components";
+import components from "../src/pages/components";
 
 export default components;
