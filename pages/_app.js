@@ -30,11 +30,11 @@ const GlobalStyle = createGlobalStyle`
     --size-button: auto;
 
 
-    @media (max-width: ${style.breakpoint.tabletLarge}) {
+    @media (max-width: ${style.breakpoint.tabletLandscape}) {
       --size-button: 3rem;
     } 
 
-    @media (max-width: ${style.breakpoint.tabletSmall}) {
+    @media (max-width: ${style.breakpoint.tabletPortrait}) {
       --size-xs: ${style.sizeMobile.xs};
       --size-s: ${style.sizeMobile.s};
       --size-m: ${style.sizeMobile.m};
@@ -52,8 +52,28 @@ const GlobalStyle = createGlobalStyle`
   html {
     font-size: 16px;
 
-    @media (max-width: ${style.breakpoint.tabletSmall}) {
+    @media (max-width: ${style.breakpoint.tabletLandscape}) {
       font-size: 15px;
+    }
+
+    @media (min-width: ${style.breakpoint.tabletLandscape}) {
+      font-size: 16px;
+    }
+
+    @media (min-width: ${style.breakpoint.desktopM}) {
+      font-size: 13px;
+    }
+    
+    @media (min-width: ${style.breakpoint.desktopL}) {
+      font-size: 15px;
+    }
+
+    @media (min-width: ${style.breakpoint.desktopXL}) {
+      font-size: 16px;
+    }
+    
+    @media (min-width: ${style.breakpoint.desktopXXL}) {
+    font-size: 21px;
     }
   }
 
@@ -63,9 +83,29 @@ const GlobalStyle = createGlobalStyle`
     font-size: 19px;
     background-color: ${style.color.light};
 
-    @media (max-width: ${style.breakpoint.tabletSmall}) {
+    @media (max-width: ${style.breakpoint.tabletLandscape}) {
       font-size: 16px;
     }
+
+    @media (min-width: ${style.breakpoint.tabletLandscape}) {
+      font-size: 19px;
+    } 
+    
+    @media (min-width: ${style.breakpoint.desktopM}) {
+      font-size: 15px;
+    }
+
+    @media (min-width: ${style.breakpoint.desktopL}) {
+      font-size: 16px;
+    }
+
+    @media (min-width: ${style.breakpoint.desktopXL}) {
+      font-size: 19px;
+    }
+    
+    @media (min-width: ${style.breakpoint.desktopXXL}) {
+      font-size: 24px;
+    } 
   }
 
   a img {outline : none;}

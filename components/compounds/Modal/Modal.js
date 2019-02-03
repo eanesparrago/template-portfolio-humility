@@ -30,7 +30,10 @@ const StyledModal = styled.div`
   }
 
   .item-modal-main-photo {
+    /* border: 1px solid magenta; */
+
     height: 62%;
+    width: 100%;
   }
 
   .box-modal-gallery {
@@ -43,8 +46,10 @@ const StyledModal = styled.div`
 
   /* >>> Modal detail */
   .area-modal-detail {
+    /* border: 1px solid magenta; */
     background-color: ${p => p.theme.color.white};
     min-width: 38%;
+    width: 100%;
   }
 
   .container-modal-close {

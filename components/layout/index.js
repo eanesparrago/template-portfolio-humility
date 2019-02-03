@@ -14,7 +14,7 @@ import { animated } from "react-spring";
 const spacingProperties = ({
   padding,
   margin,
-  theme: { size, sizeMobile }
+  theme: { size, sizeMobile, breakpoint }
 }) => {
   // >>> CSS shorthand reference: top, right, bottom, left
   // >>> Padding — Inset: base, xs, s, m, l, xl
@@ -156,7 +156,7 @@ const spacingProperties = ({
       (margin === "wrap-l" && wrapL) ||
       (margin === "wrap-xl" && wrapXl)};
 
-    @media (max-width: 45em) {
+    @media (max-width: ${breakpoint.tabletPortrait}) {
       padding: ${(padding === "inset-base" && insetBaseMobile) ||
         (padding === "inset-xs" && insetXsMobile) ||
         (padding === "inset-s" && insetSMobile) ||

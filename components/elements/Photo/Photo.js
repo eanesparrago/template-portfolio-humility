@@ -4,6 +4,7 @@ import styled, { css } from "styled-components";
 
 const StyledPhoto = styled.div`
   overflow: hidden;
+  width: 100%;
   /* box-shadow: ${p => p.theme.shadow[1]}; */
 
   ${p =>

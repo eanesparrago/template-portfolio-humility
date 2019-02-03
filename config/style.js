@@ -1,10 +1,22 @@
 export default {
   // >>> desktop first breakpoints
+  // breakpoint: {
+  //   mobile: "37.4375em", // >>> 599px
+  //   tabletS: "44.9375em", // >>> 719px
+  //   tabletL: "52.4375em", // >>> 839px
+  //   desktopM: "64em", // >>> 1024px
+  //   desktopL: "85.266em", // >>> 1366px
+  //   desktopXL: "120em", // >>> 1920px
+  //   desktopXXL: "160em" // >>> 2560px
+  // },
   breakpoint: {
-    mobile: "599px", // >>> 599px
-    tabletSmall: "719px", // >>> 719px
-    tabletSmallEnd: "720px", // >>> 719px
-    tabletLarge: "839px" // >>> 839px
+    phone: "0px", // >>> 
+    tabletPortrait: "600px", // >>> 
+    tabletLandscape: "900px", // >>> 
+    desktopM: "1200px", // >>> 
+    desktopL: "1500px", // >>> 
+    desktopXL: "1800px", // >>> 
+    desktopXXL: "2000px"
   },
   font: {
     sansSerif: "PT Sans, sans-serif",
