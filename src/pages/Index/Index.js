@@ -292,6 +292,7 @@ class index extends Component {
                   onLeave={() => {
                     this.handleSectionScroll("Skills");
                   }}
+                  topOffset={"500px"}
                 >
                   <div>
                     <Container
@@ -340,6 +341,7 @@ class index extends Component {
                   onLeave={() => {
                     this.handleSectionScroll("Projects");
                   }}
+                  bottomOffset={"500px"}
                 >
                   <div>
                     <Container
