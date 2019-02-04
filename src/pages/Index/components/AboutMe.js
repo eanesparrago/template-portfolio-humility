@@ -11,7 +11,7 @@ const StyledAboutMe = styled.div`
 
   .item-about-me-quote {
     h1 {
-      text-indent: -0.4em;
+      text-indent: -0.45em;
     }
     h1::before {
       content: none;

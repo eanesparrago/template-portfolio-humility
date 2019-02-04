@@ -235,7 +235,7 @@ class index extends Component {
                   onLeave={() => {
                     this.handleSectionChange("Skills");
                   }}
-                  topOffset={"500px"}
+                  // topOffset={"500px"}
                 >
                   <div>
                     <Container
@@ -281,7 +281,10 @@ class index extends Component {
                   onEnter={() => {
                     this.handleSectionChange("Skills");
                   }}
-                  topOffset={"500px"}
+                  onLeave={() => {
+                    this.handleSectionChange("Projects");
+                  }}
+                  // topOffset={"500px"}
                 >
                   <div>
                     <Container
@@ -302,10 +305,10 @@ class index extends Component {
                   onEnter={() => {
                     this.handleSectionChange("About Me");
                   }}
-                  // onLeave={() => {
-                  //   this.handleSectionChange("Skills");
-                  // }}
-                  bottomOffset={"500px"}
+                  onLeave={() => {
+                    this.handleSectionChange("Skills");
+                  }}
+                  // bottomOffset={"500px"}
                 >
                   <div>
                     <Container
