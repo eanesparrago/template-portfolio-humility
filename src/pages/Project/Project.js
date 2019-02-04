@@ -192,12 +192,20 @@ class project extends Component {
           </Box>
         </Area>
 
-        <Container name="modal">
-          <Modal
-            content={this.props.modalContent}
-            onDismiss={this.handleDismissModal}
-          />
-        </Container>
+        <Spring
+          native
+          from={{ transform: "translate3d(0,110vh,0)" }}
+          to={{ transform: "translate3d(0,0px,0)" }}
+        >
+          {props => (
+            <Container name="modal" animate={props}>
+              <Modal
+                content={this.props.modalContent}
+                onDismiss={this.handleDismissModal}
+              />
+            </Container>
+          )}
+        </Spring>
       </StyledWrapper>
     );
   }

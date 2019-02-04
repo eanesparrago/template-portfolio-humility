@@ -144,7 +144,7 @@ const StyledWrapper = styled.div`
 
 class index extends Component {
   state = {
-    currentSection: "",
+    currentSection: "Projects",
     project: {},
     isModalOpen: false
   };
@@ -158,6 +158,17 @@ class index extends Component {
   }
 
   // >>> Dynamic
+  showModal = (e, id) => {
+    e.preventDefault();
+    document.addEventListener("scroll", this.handleScroll);
+
+    this.setState({
+      project: this.props.projects.find(project => project.id == id)
+    });
+    Router.push(`/?projectId=${id}`, `/project?id=${id}`);
+  };
+
+  // >>> Static
   // showModal = (e, id) => {
   //   e.preventDefault();
   //   document.addEventListener("scroll", this.handleScroll);
@@ -165,18 +176,8 @@ class index extends Component {
   //   this.setState({
   //     project: this.props.projects.find(project => project.id == id)
   //   });
-  //   Router.push(`/?projectId=${id}`, `/project?id=${id}`);
+  //   Router.push(`/?projectId=${id}`, `/project/${id}`);
   // };
-
-  // >>> Static
-  showModal = (e, id) => {
-    e.preventDefault();
-
-    this.setState({
-      project: this.props.projects.find(project => project.id == id)
-    });
-    Router.push(`/?projectId=${id}`, `/project/${id}`);
-  };
 
   dismissModal = () => {
     document.removeEventListener("scroll", this.handleScroll);
@@ -200,14 +201,30 @@ class index extends Component {
   };
 
   handleSectionScroll = section => {
-    this.setState({
-      currentSection: section
-    });
+    this.setState(
+      {
+        currentSection: section
+      },
+      console.log("scroll", this.state.currentSection)
+    );
   };
 
   handleMenuClick = title => {
     const anchor = title.toLowerCase().replace(/ /, "-");
-    Router.push(`/#${anchor}`);
+
+    if (title === "Projects" && this.state.currentSection === "About Me") {
+      const scrollToTop = () => {
+        const c = document.documentElement.scrollTop || document.body.scrollTop;
+        if (c > 0) {
+          window.requestAnimationFrame(scrollToTop);
+          window.scrollTo(0, c - c / 8);
+        }
+      };
+      scrollToTop();
+      Router.push(`/`);
+    } else {
+      Router.push(`/#${anchor}`);
+    }
   };
 
   render() {
@@ -285,7 +302,6 @@ class index extends Component {
                   onLeave={() => {
                     this.handleSectionScroll("Skills");
                   }}
-                  // topOffset={"500px"}
                 >
                   <div>
                     <Container
@@ -334,7 +350,6 @@ class index extends Component {
                   onLeave={() => {
                     this.handleSectionScroll("Projects");
                   }}
-                  // topOffset={"500px"}
                 >
                   <div>
                     <Container
@@ -358,7 +373,6 @@ class index extends Component {
                   onLeave={() => {
                     this.handleSectionScroll("Skills");
                   }}
-                  // bottomOffset={"500px"}
                 >
                   <div>
                     <Container
