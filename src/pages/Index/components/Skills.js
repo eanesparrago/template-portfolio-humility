@@ -8,10 +8,9 @@ import { Typography } from "../../../components/elements";
 const StyledSkills = styled.div`
   padding-top: ${p => p.theme.increment(4)};
   padding-left: ${p => p.theme.increment(2)};
-  margin-bottom: 100em;
+
 
   .item-skills-title {
-    /* color: ${p => p.theme.color.light}; */
   }
 `;
 
@@ -56,7 +55,7 @@ export class Skills extends Component {
 
         <Container margin="stack-xl">
           <Item name="skills-title" margin="stack-base">
-            <Typography as="h1">Front-End Development</Typography>
+            <Typography as="h1">UI/UX Design</Typography>
           </Item>
 
           <Item margin="stack-l">
@@ -86,7 +85,37 @@ export class Skills extends Component {
 
         <Container margin="stack-xl">
           <Item name="skills-title" margin="stack-base">
-            <Typography as="h1">Front-End Development</Typography>
+            <Typography as="h1">Graphic Design</Typography>
+          </Item>
+
+          <Item margin="stack-l">
+            <Typography as="h2">Web-Technologies</Typography>
+          </Item>
+
+          <Box margin="stack-m" column as="ul">
+            {frontEndSkills.map(skill => (
+              <Item margin="stack-base" as="li">
+                <Typography as="h3">• {skill}</Typography>
+              </Item>
+            ))}
+          </Box>
+
+          <Item margin="stack-l">
+            <Typography as="h2">Development Tools</Typography>
+          </Item>
+
+          <Box column as="ul">
+            {frontEndDev.map(skill => (
+              <Item margin="stack-base" as="li">
+                <Typography as="h3">•{skill}</Typography>
+              </Item>
+            ))}
+          </Box>
+        </Container>
+
+        <Container margin="stack-xl">
+          <Item name="skills-title" margin="stack-base">
+            <Typography as="h1">Back-End Development</Typography>
           </Item>
 
           <Item margin="stack-l">

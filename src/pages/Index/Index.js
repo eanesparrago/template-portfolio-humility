@@ -8,6 +8,7 @@ import { Item, Box, Container, Area } from "../../components/layout";
 import { NavStatusBarContainer } from "../../containers";
 
 import Skills from "./components/Skills";
+import AboutMe from "./components/AboutMe";
 
 const StyledWrapper = styled.div`
   .container-wrapper-main {
@@ -85,6 +86,18 @@ const StyledWrapper = styled.div`
 
   /* ======------>>> ITEM: skills */
   .item-wrapper-skills {
+    width: calc(100% / 1.618);
+  }
+
+  /* ------>>> CONTAINER: about-me */
+  .container-wrapper-about-me {
+    background-color: ${p => p.theme.color.dark};
+    color: ${p => p.theme.color.light};
+    height: 100vh;
+  }
+
+  /* ======------>>> ITEM: about-me */
+  .item-wrapper-about-me {
     width: calc(100% / 1.618);
   }
 `;
@@ -239,6 +252,13 @@ class index extends Component {
                 <Container name="wrapper-skills" padding="inset-base">
                   <Item name="wrapper-skills">
                     <Skills />
+                  </Item>
+                </Container>
+
+                {/* >>> ABOUT ME */}
+                <Container name="wrapper-about-me" padding="inset-base">
+                  <Item name="wrapper-about-me">
+                    <AboutMe />
                   </Item>
                 </Container>
               </Area>
