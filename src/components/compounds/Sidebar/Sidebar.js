@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Link from "next/link";
 import styled from "styled-components";
 import { Spring, Trail, config } from "react-spring";
 import { Item, Box, Container, Area } from "../../layout";
@@ -44,33 +45,68 @@ const StyledSidebar = styled.section`
   }
 `;
 
-const socialIcons = [
-  { class: "fab fa-2x fa-github", href: "https://github.com/LJEsp" },
-  { class: "fab fa-2x fa-linkedin", href: "https://github.com/LJEsp" },
-  { class: "fab fa-2x fa-twitter", href: "https://github.com/LJEsp" }
-];
-
-const navItems = ["Projects", "Skills", "About Me"];
-
 export default class extends Component {
+  static propTypes = {};
+
+  static defaultProps = {
+    content: {
+      profileImage:
+        "http://images.amcnetworks.com/ifccenter.com/wp-content/uploads/2016/12/dr-strangelove_1280x720.jpg",
+      name: "Doctor Strangelove",
+      title: "Web Developer",
+      socialLinks: [
+        {
+          class: "fab fa-2x fa-github",
+          href: "https://github.com/LJEsp"
+        },
+        {
+          class: "fab fa-2x fa-linkedin",
+          href: "https://github.com/LJEsp"
+        },
+        {
+          class: "fab fa-2x fa-twitter",
+          href: "https://github.com/LJEsp"
+        }
+      ],
+      navMenu: [
+        {
+          title: "Projects",
+          href: "#projects"
+        },
+        {
+          title: "Skills",
+          href: "#skills"
+        },
+        {
+          title: "About Me",
+          href: "#about-me"
+        }
+      ],
+      footer: {
+        text: "Made by LJEsp",
+        imageLink:
+          "https://avatars1.githubusercontent.com/u/36854142?s=460&v=4",
+        imageHref: "https://github.com/LJEsp"
+      }
+    }
+  };
+
   render() {
+    const { content } = this.props;
+
     return (
       <StyledSidebar>
         <Container name="main" padding="inset-base">
           <Box column align="center">
             <Spring
               native
-              // config={config.stiff}
               from={{ opacity: "0", transform: "rotate(180deg)" }}
               to={{ opacity: "1", transform: "rotate(0deg)" }}
             >
               {props => (
                 <Item name="photo" animate={props} margin="stack-base">
                   <Photo rounded>
-                    <img
-                      src="http://images.amcnetworks.com/ifccenter.com/wp-content/uploads/2016/12/dr-strangelove_1280x720.jpg"
-                      alt=""
-                    />
+                    <img src={content.profileImage} alt={content.name} />
                   </Photo>
                 </Item>
               )}
@@ -85,7 +121,7 @@ export default class extends Component {
             >
               {props => (
                 <Item name="name" animate={props} center margin="stack-base">
-                  <Typography as="h3">Doctor Strangelove</Typography>
+                  <Typography as="h3">{content.name}</Typography>
                 </Item>
               )}
             </Spring>
@@ -99,7 +135,7 @@ export default class extends Component {
             >
               {props => (
                 <Item animate={props} center margin="stack-base">
-                  <Typography as="h4">Web Developer</Typography>
+                  <Typography as="h4">{content.title}</Typography>
                 </Item>
               )}
             </Spring>
@@ -109,21 +145,21 @@ export default class extends Component {
               <Trail
                 delay={600}
                 config={config.stiff}
-                items={socialIcons}
+                items={content.socialLinks}
                 native
                 keys={item => item.class}
                 from={{ opacity: "0" }}
                 to={{ opacity: "1" }}
               >
-                {social => props => (
+                {item => props => (
                   <Item
-                    name="social"
-                    key={social.class}
+                    name="class"
+                    key={item.class}
                     animate={props}
                     padding="squish-m"
                   >
-                    <Button variant="icon-link" href={social.href}>
-                      <i className={social.class} />
+                    <Button variant="icon-link" href={item.href}>
+                      <i className={item.class} />
                     </Button>
                   </Item>
                 )}
@@ -136,15 +172,24 @@ export default class extends Component {
                 delay={800}
                 config={config.stiff}
                 native
-                items={navItems}
-                keys={item => item}
+                items={content.navMenu}
+                keys={item => item.title}
                 from={{ opacity: "0", transform: "translateX(-10em)" }}
                 to={{ opacity: "1", transform: "translateX(0)" }}
               >
                 {item => props => (
-                  <Item key={item} animate={props} padding="squish-m">
-                    <Button variant="text">{item}</Button>
-                  </Item>
+                  <Link href={item.href}>
+                    <Item key={item.title} animate={props} padding="squish-m">
+                      <Button
+                        onClick={() => {
+                          console.log("test");
+                        }}
+                        variant="text"
+                      >
+                        {item.title}
+                      </Button>
+                    </Item>
+                  </Link>
                 )}
               </Trail>
             </Box>
@@ -160,16 +205,13 @@ export default class extends Component {
             {props => (
               <Box name="copyright" animate={props} align="center">
                 <Item margin="inline-m">
-                  <Typography>Made by LJEsp</Typography>
+                  <Typography>{content.footer.text}</Typography>
                 </Item>
 
                 <Item name="lje">
-                  <Button variant="photo-link" href="https://github.com/LJEsp">
+                  <Button variant="photo-link" href={content.footer.imageHref}>
                     <Photo variant="cover" rounded>
-                      <img
-                        src="https://avatars1.githubusercontent.com/u/36854142?s=460&v=4"
-                        alt=""
-                      />
+                      <img src={content.footer.imageLink} alt="" />
                     </Photo>
                   </Button>
                 </Item>

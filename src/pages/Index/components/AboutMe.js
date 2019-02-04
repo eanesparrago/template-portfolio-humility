@@ -29,16 +29,25 @@ export class AboutMe extends Component {
           <Item name="about-me-quote" margin="stack-xl">
             <Typography as="h1">
               &ldquo;Some stars burn out and die. Bigger stars burn out and die
-              with PASSION.&rdquo; &mdash;&nbsp;Bill Wurtz
+              with&nbsp;PASSION.&rdquo; &mdash;&nbsp;Bill Wurtz
             </Typography>
           </Item>
 
-          <Item name="about-me-body">
+          <Item name="about-me-body" margin="stack-l">
             <Typography as="p">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquid
               hic veritatis quam at expedita impedit ut non perferendis iure
               illum pariatur ratione, rerum eveniet. Soluta illum totam sequi
               similique harum.
+            </Typography>
+          </Item>
+
+          <Item name="about-me-body">
+            <Typography as="p">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil
+              voluptatem corporis natus dolore rerum nemo mollitia libero itaque
+              suscipit molestias repudiandae consequuntur est, dolorem illum
+              iusto expedita optio, sunt ipsum!
             </Typography>
           </Item>
         </Container>

@@ -1,18 +1,23 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 import { Spring, Trail, Transition } from "react-spring";
 import { Item, Box, Container, Area } from "../../layout";
 import { Button, Typography, Photo } from "../../elements";
 
 const StyledNavStatusBar = styled.div`
   /* border: 1px solid magenta; */
-  background-color: ${p => p.theme.color.primary.dark};
   width: 100%;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: none;
+  background-color: ${p =>
+    (p.content === "Projects" && p.theme.color.primary.dark) ||
+    (p.content === "Skills" && p.theme.color.dark) ||
+    (p.content === "About Me" && p.theme.color.primary.dark)};
+  transition-duration: 300ms;
 
   .item-text {
     /* border: 1px solid magenta; */
@@ -29,11 +34,21 @@ const StyledNavStatusBar = styled.div`
 `;
 
 class NavStatusBar extends Component {
+  static propTypes = {
+    content: PropTypes.string
+  };
+
+  static defaultProps = {
+    content: "Projects"
+  };
+
   render() {
+    const { content } = this.props;
+
     return (
-      <StyledNavStatusBar>
+      <StyledNavStatusBar content={content}>
         <Item name="text">
-          <Typography>Projects</Typography>
+          <Typography>{content}</Typography>
         </Item>
       </StyledNavStatusBar>
     );

@@ -9,7 +9,6 @@ const StyledSkills = styled.div`
   padding-top: ${p => p.theme.increment(4)};
   padding-left: ${p => p.theme.increment(2)};
 
-
   .item-skills-title {
   }
 `;
@@ -33,8 +32,8 @@ export class Skills extends Component {
           </Item>
 
           <Box margin="stack-m" column as="ul">
-            {frontEndSkills.map(skill => (
-              <Item margin="stack-base" as="li">
+            {frontEndSkills.map((skill, i) => (
+              <Item key={i} margin="stack-base" as="li">
                 <Typography as="h3">• {skill}</Typography>
               </Item>
             ))}
@@ -45,8 +44,8 @@ export class Skills extends Component {
           </Item>
 
           <Box column as="ul">
-            {frontEndDev.map(skill => (
-              <Item margin="stack-base" as="li">
+            {frontEndSkills.map((skill, i) => (
+              <Item key={i} margin="stack-base" as="li">
                 <Typography as="h3">• {skill}</Typography>
               </Item>
             ))}
@@ -63,8 +62,8 @@ export class Skills extends Component {
           </Item>
 
           <Box margin="stack-m" column as="ul">
-            {frontEndSkills.map(skill => (
-              <Item margin="stack-base" as="li">
+            {frontEndSkills.map((skill, i) => (
+              <Item key={i} margin="stack-base" as="li">
                 <Typography as="h3">• {skill}</Typography>
               </Item>
             ))}
@@ -75,9 +74,9 @@ export class Skills extends Component {
           </Item>
 
           <Box column as="ul">
-            {frontEndDev.map(skill => (
-              <Item margin="stack-base" as="li">
-                <Typography as="h3">•{skill}</Typography>
+            {frontEndSkills.map((skill, i) => (
+              <Item key={i} margin="stack-base" as="li">
+                <Typography as="h3">• {skill}</Typography>
               </Item>
             ))}
           </Box>
@@ -93,8 +92,8 @@ export class Skills extends Component {
           </Item>
 
           <Box margin="stack-m" column as="ul">
-            {frontEndSkills.map(skill => (
-              <Item margin="stack-base" as="li">
+            {frontEndSkills.map((skill, i) => (
+              <Item key={i} margin="stack-base" as="li">
                 <Typography as="h3">• {skill}</Typography>
               </Item>
             ))}
@@ -105,9 +104,9 @@ export class Skills extends Component {
           </Item>
 
           <Box column as="ul">
-            {frontEndDev.map(skill => (
-              <Item margin="stack-base" as="li">
-                <Typography as="h3">•{skill}</Typography>
+            {frontEndSkills.map((skill, i) => (
+              <Item key={i} margin="stack-base" as="li">
+                <Typography as="h3">• {skill}</Typography>
               </Item>
             ))}
           </Box>
@@ -123,8 +122,8 @@ export class Skills extends Component {
           </Item>
 
           <Box margin="stack-m" column as="ul">
-            {frontEndSkills.map(skill => (
-              <Item margin="stack-base" as="li">
+            {frontEndSkills.map((skill, i) => (
+              <Item key={i} margin="stack-base" as="li">
                 <Typography as="h3">• {skill}</Typography>
               </Item>
             ))}
@@ -135,9 +134,9 @@ export class Skills extends Component {
           </Item>
 
           <Box column as="ul">
-            {frontEndDev.map(skill => (
-              <Item margin="stack-base" as="li">
-                <Typography as="h3">•{skill}</Typography>
+            {frontEndSkills.map((skill, i) => (
+              <Item key={i} margin="stack-base" as="li">
+                <Typography as="h3">• {skill}</Typography>
               </Item>
             ))}
           </Box>

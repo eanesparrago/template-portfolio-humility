@@ -2,10 +2,10 @@ import React, { Component, Fragment } from "react";
 import Router, { withRouter } from "next/router";
 import styled from "styled-components";
 import { Spring, Transition, Trail, config } from "react-spring";
-
 import { Sidebar, Card, Modal } from "../../components/compounds";
 import { Item, Box, Container, Area } from "../../components/layout";
-import { NavStatusBarContainer } from "../../containers";
+import { SidebarContainer, NavStatusBarContainer } from "../../containers";
+import Waypoint from "react-waypoint";
 
 import Skills from "./components/Skills";
 import AboutMe from "./components/AboutMe";
@@ -44,8 +44,6 @@ const StyledWrapper = styled.div`
     /* border: 1px solid magenta; */
     flex: 1;
     min-height: 100vh;
-    /* max-width: ${p => p.theme.incrementFixed(4)};
-    min-width: ${p => p.theme.incrementFixed(4)}; */
   }
 
   /* >>> AREA: content */
@@ -93,7 +91,7 @@ const StyledWrapper = styled.div`
   .container-wrapper-about-me {
     background-color: ${p => p.theme.color.dark};
     color: ${p => p.theme.color.light};
-    height: 100vh;
+    min-height: 100vh;
   }
 
   /* ======------>>> ITEM: about-me */
@@ -104,14 +102,10 @@ const StyledWrapper = styled.div`
 
 class index extends Component {
   state = {
+    currentSection: "",
     project: {},
     isModalOpen: false
   };
-
-  constructor(props) {
-    super(props);
-    this.onKeyDown = this.onKeyDown.bind(this);
-  }
 
   componentDidMount() {
     document.addEventListener("keydown", this.onKeyDown);
@@ -149,15 +143,22 @@ class index extends Component {
     Router.push("/");
   };
 
-  onKeyDown(e) {
-    if (!this.props.router.query.id) return;
+  onKeyDown = e => {
+    if (!this.props.router.query.projectId) return;
     if (e.keyCode === 27) {
       Router.back();
     }
-  }
+  };
+
+  handleSectionChange = section => {
+    this.setState({
+      currentSection: section
+    });
+  };
 
   render() {
     const { router, projects } = this.props;
+    const { currentSection } = this.state;
 
     return (
       <StyledWrapper>
@@ -174,7 +175,7 @@ class index extends Component {
                   >
                     {props => (
                       <Item name="wrapper-sidebar" animate={props}>
-                        <Sidebar />
+                        <SidebarContainer />
                       </Item>
                     )}
                   </Spring>
@@ -188,7 +189,7 @@ class index extends Component {
                   >
                     {props => (
                       <Item name="wrapper-nav-status-bar" animate={props}>
-                        <NavStatusBarContainer />
+                        <NavStatusBarContainer content={currentSection} />
                       </Item>
                     )}
                   </Spring>
@@ -220,47 +221,97 @@ class index extends Component {
                 </Transition>
 
                 {/* >>> PROJECTS */}
-                <Container name="wrapper-projects" padding="inset-base">
-                  <Trail
-                    delay={800}
-                    native
-                    items={projects}
-                    keys={project => project.id}
-                    from={{
-                      transform: "scale(0.5) translateY(6em) translateX(6em)",
-                      opacity: "0"
-                    }}
-                    to={{
-                      transform: "scale(1) translateY(0) translateX(0)",
-                      opacity: "1"
-                    }}
-                  >
-                    {project => props => (
-                      <Item
-                        name="wrapper-card"
-                        key={project.id}
-                        animate={props}
-                        margin="wrap-base"
+                <Waypoint
+                  onEnter={() => {
+                    this.handleSectionChange("Projects");
+                  }}
+                  onLeave={() => {
+                    this.handleSectionChange("Skills");
+                  }}
+                  topOffset={"500px"}
+                >
+                  <div>
+                    <Container
+                      id="projects"
+                      name="wrapper-projects"
+                      padding="inset-base"
+                    >
+                      <Trail
+                        delay={800}
+                        native
+                        items={projects}
+                        keys={project => project.id}
+                        from={{
+                          transform:
+                            "scale(0.5) translateY(6em) translateX(6em)",
+                          opacity: "0"
+                        }}
+                        to={{
+                          transform: "scale(1) translateY(0) translateX(0)",
+                          opacity: "1"
+                        }}
                       >
-                        <Card content={project} showModal={this.showModal} />
-                      </Item>
-                    )}
-                  </Trail>
-                </Container>
+                        {project => props => (
+                          <Item
+                            name="wrapper-card"
+                            key={project.id}
+                            animate={props}
+                            margin="wrap-base"
+                          >
+                            <Card
+                              content={project}
+                              showModal={this.showModal}
+                            />
+                          </Item>
+                        )}
+                      </Trail>
+                    </Container>
+                  </div>
+                </Waypoint>
 
                 {/* >>> SKILLS */}
-                <Container name="wrapper-skills" padding="inset-base">
-                  <Item name="wrapper-skills">
-                    <Skills />
-                  </Item>
-                </Container>
+                <Waypoint
+                  onEnter={() => {
+                    this.handleSectionChange("Skills");
+                  }}
+                  topOffset={"500px"}
+                >
+                  <div>
+                    <Container
+                      id="skills"
+                      name="wrapper-skills"
+                      padding="inset-base"
+                    >
+                      <Item name="wrapper-skills">
+                        <Skills />
+                      </Item>
+                    </Container>
+                  </div>
+                </Waypoint>
 
                 {/* >>> ABOUT ME */}
-                <Container name="wrapper-about-me" padding="inset-base">
-                  <Item name="wrapper-about-me">
-                    <AboutMe />
-                  </Item>
-                </Container>
+
+                <Waypoint
+                  onEnter={() => {
+                    this.handleSectionChange("About Me");
+                  }}
+                  // onLeave={() => {
+                  //   this.handleSectionChange("Skills");
+                  // }}
+                  bottomOffset={"500px"}
+                >
+                  <div>
+                    <Container
+                      id="about-me"
+                      name="wrapper-about-me"
+                      padding="inset-base"
+                    >
+                      <Item name="wrapper-about-me">
+                        <AboutMe />
+                      </Item>
+                    </Container>
+                  </div>
+                </Waypoint>
               </Area>
             </Container>
           )}
