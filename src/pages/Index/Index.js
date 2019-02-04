@@ -201,30 +201,20 @@ class index extends Component {
   };
 
   handleSectionScroll = section => {
-    this.setState(
-      {
-        currentSection: section
-      },
-      console.log("scroll", this.state.currentSection)
-    );
+    this.setState({
+      currentSection: section
+    });
   };
 
   handleMenuClick = title => {
     const anchor = title.toLowerCase().replace(/ /, "-");
 
-    if (title === "Projects" && this.state.currentSection === "About Me") {
-      const scrollToTop = () => {
-        const c = document.documentElement.scrollTop || document.body.scrollTop;
-        if (c > 0) {
-          window.requestAnimationFrame(scrollToTop);
-          window.scrollTo(0, c - c / 8);
-        }
-      };
-      scrollToTop();
-      Router.push(`/`);
-    } else {
-      Router.push(`/#${anchor}`);
-    }
+    Router.push(`/#${anchor}`).then(() => {
+      // >>> Bug workaround >:(
+      setTimeout(() => {
+        this.setState({ currentSection: title });
+      }, 100);
+    });
   };
 
   render() {
