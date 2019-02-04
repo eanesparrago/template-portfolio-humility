@@ -302,23 +302,38 @@ class index extends Component {
                     topOffset={"500px"}
                   >
                     <div>
-                      <Container
-                        id="projects"
-                        name="wrapper-projects"
-                        padding="inset-base"
+                      <Spring
+                        delay={1200}
+                        native
+                        config={config.slow}
+                        from={{
+                          opacity: "0",
+                          transform: "translateY(6em)"
+                        }}
+                        to={{
+                          opacity: "1",
+                          transform: "translateY(0)"
+                        }}
                       >
-                        <Trail
+                        {props => (
+                          <Container
+                            id="projects"
+                            name="wrapper-projects"
+                            padding="inset-base"
+                            animate={props}
+                          >
+                            {/* <Trail
                           delay={800}
                           native
                           items={projects}
                           keys={project => project.id}
                           from={{
                             transform:
-                              "scale(0.5) translateY(6em) translateX(6em)",
+                              "scale(0.5)",
                             opacity: "0"
                           }}
                           to={{
-                            transform: "scale(1) translateY(0) translateX(0)",
+                            transform: "scale(1)",
                             opacity: "1"
                           }}
                         >
@@ -335,8 +350,23 @@ class index extends Component {
                               />
                             </Item>
                           )}
-                        </Trail>
-                      </Container>
+                        </Trail> */}
+
+                            {projects.map(project => (
+                              <Item
+                                name="wrapper-card"
+                                key={project.id}
+                                margin="wrap-base"
+                              >
+                                <Card
+                                  content={project}
+                                  showModal={this.showModal}
+                                />
+                              </Item>
+                            ))}
+                          </Container>
+                        )}
+                      </Spring>
                     </div>
                   </Waypoint>
 
