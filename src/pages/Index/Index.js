@@ -10,6 +10,48 @@ import Waypoint from "react-waypoint";
 import Skills from "./components/Skills";
 import AboutMe from "./components/AboutMe";
 
+const sidebarContent = {
+  content: {
+    profileImage:
+      "http://images.amcnetworks.com/ifccenter.com/wp-content/uploads/2016/12/dr-strangelove_1280x720.jpg",
+    name: "Doctor Strangelove",
+    title: "Web Developer",
+    socialLinks: [
+      {
+        class: "fab fa-2x fa-github",
+        href: "https://github.com/LJEsp"
+      },
+      {
+        class: "fab fa-2x fa-linkedin",
+        href: "https://github.com/LJEsp"
+      },
+      {
+        class: "fab fa-2x fa-twitter",
+        href: "https://github.com/LJEsp"
+      }
+    ],
+    navMenu: [
+      {
+        title: "Projects",
+        href: "#projects"
+      },
+      {
+        title: "Skills",
+        href: "#skills"
+      },
+      {
+        title: "About Me",
+        href: "#about-me"
+      }
+    ],
+    footer: {
+      text: "Made by LJEsp",
+      imageLink: "https://avatars1.githubusercontent.com/u/36854142?s=460&v=4",
+      imageHref: "https://github.com/LJEsp"
+    }
+  }
+};
+
 const StyledWrapper = styled.div`
   .container-wrapper-main {
     display: flex;
@@ -157,10 +199,15 @@ class index extends Component {
     }
   };
 
-  handleSectionChange = section => {
+  handleSectionScroll = section => {
     this.setState({
       currentSection: section
     });
+  };
+
+  handleMenuClick = title => {
+    const anchor = title.toLowerCase().replace(/ /, "-");
+    Router.push(`/#${anchor}`);
   };
 
   render() {
@@ -182,7 +229,10 @@ class index extends Component {
                   >
                     {props => (
                       <Item name="wrapper-sidebar" animate={props}>
-                        <SidebarContainer />
+                        <SidebarContainer
+                          sidebarContent={sidebarContent}
+                          handleMenuClick={this.handleMenuClick}
+                        />
                       </Item>
                     )}
                   </Spring>
@@ -230,10 +280,10 @@ class index extends Component {
                 {/* >>> PROJECTS */}
                 <Waypoint
                   onEnter={() => {
-                    this.handleSectionChange("Projects");
+                    this.handleSectionScroll("Projects");
                   }}
                   onLeave={() => {
-                    this.handleSectionChange("Skills");
+                    this.handleSectionScroll("Skills");
                   }}
                   // topOffset={"500px"}
                 >
@@ -279,10 +329,10 @@ class index extends Component {
                 {/* >>> SKILLS */}
                 <Waypoint
                   onEnter={() => {
-                    this.handleSectionChange("Skills");
+                    this.handleSectionScroll("Skills");
                   }}
                   onLeave={() => {
-                    this.handleSectionChange("Projects");
+                    this.handleSectionScroll("Projects");
                   }}
                   // topOffset={"500px"}
                 >
@@ -303,10 +353,10 @@ class index extends Component {
 
                 <Waypoint
                   onEnter={() => {
-                    this.handleSectionChange("About Me");
+                    this.handleSectionScroll("About Me");
                   }}
                   onLeave={() => {
-                    this.handleSectionChange("Skills");
+                    this.handleSectionScroll("Skills");
                   }}
                   // bottomOffset={"500px"}
                 >

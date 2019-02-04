@@ -8,6 +8,11 @@ export default class SidebarContainer extends Component {
   static defaultProps = {};
 
   render() {
-    return <Sidebar />;
+    return (
+      <Sidebar
+        content={this.props.sidebarContent}
+        handleMenuClick={this.props.handleMenuClick}
+      />
+    );
   }
 }

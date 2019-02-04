@@ -49,7 +49,7 @@ export default class extends Component {
   static propTypes = {};
 
   static defaultProps = {
-    content: {
+    sidebarContent: {
       profileImage:
         "http://images.amcnetworks.com/ifccenter.com/wp-content/uploads/2016/12/dr-strangelove_1280x720.jpg",
       name: "Doctor Strangelove",
@@ -92,7 +92,7 @@ export default class extends Component {
   };
 
   render() {
-    const { content } = this.props;
+    const { sidebarContent, handleMenuClick } = this.props;
 
     return (
       <StyledSidebar>
@@ -106,7 +106,10 @@ export default class extends Component {
               {props => (
                 <Item name="photo" animate={props} margin="stack-base">
                   <Photo rounded>
-                    <img src={content.profileImage} alt={content.name} />
+                    <img
+                      src={sidebarContent.profileImage}
+                      alt={sidebarContent.name}
+                    />
                   </Photo>
                 </Item>
               )}
@@ -121,7 +124,7 @@ export default class extends Component {
             >
               {props => (
                 <Item name="name" animate={props} center margin="stack-base">
-                  <Typography as="h3">{content.name}</Typography>
+                  <Typography as="h3">{sidebarContent.name}</Typography>
                 </Item>
               )}
             </Spring>
@@ -135,7 +138,7 @@ export default class extends Component {
             >
               {props => (
                 <Item animate={props} center margin="stack-base">
-                  <Typography as="h4">{content.title}</Typography>
+                  <Typography as="h4">{sidebarContent.title}</Typography>
                 </Item>
               )}
             </Spring>
@@ -145,7 +148,7 @@ export default class extends Component {
               <Trail
                 delay={600}
                 config={config.stiff}
-                items={content.socialLinks}
+                items={sidebarContent.socialLinks}
                 native
                 keys={item => item.class}
                 from={{ opacity: "0" }}
@@ -172,24 +175,20 @@ export default class extends Component {
                 delay={800}
                 config={config.stiff}
                 native
-                items={content.navMenu}
+                items={sidebarContent.navMenu}
                 keys={item => item.title}
                 from={{ opacity: "0", transform: "translateX(-10em)" }}
                 to={{ opacity: "1", transform: "translateX(0)" }}
               >
                 {item => props => (
-                  <Link href={item.href}>
-                    <Item key={item.title} animate={props} padding="squish-m">
-                      <Button
-                        onClick={() => {
-                          console.log("test");
-                        }}
-                        variant="text"
-                      >
-                        {item.title}
-                      </Button>
-                    </Item>
-                  </Link>
+                  <Item key={item.title} animate={props} padding="squish-m">
+                    <Button
+                      onClick={() => handleMenuClick(item.title)}
+                      variant="text"
+                    >
+                      {item.title}
+                    </Button>
+                  </Item>
                 )}
               </Trail>
             </Box>
@@ -205,13 +204,16 @@ export default class extends Component {
             {props => (
               <Box name="copyright" animate={props} align="center">
                 <Item margin="inline-m">
-                  <Typography>{content.footer.text}</Typography>
+                  <Typography>{sidebarContent.footer.text}</Typography>
                 </Item>
 
                 <Item name="lje">
-                  <Button variant="photo-link" href={content.footer.imageHref}>
+                  <Button
+                    variant="photo-link"
+                    href={sidebarContent.footer.imageHref}
+                  >
                     <Photo variant="cover" rounded>
-                      <img src={content.footer.imageLink} alt="" />
+                      <img src={sidebarContent.footer.imageLink} alt="" />
                     </Photo>
                   </Button>
                 </Item>
