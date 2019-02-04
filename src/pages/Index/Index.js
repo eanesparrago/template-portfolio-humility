@@ -118,6 +118,7 @@ class index extends Component {
   // >>> Dynamic
   showModal = (e, id) => {
     e.preventDefault();
+    document.addEventListener("scroll", this.handleScroll);
 
     this.setState({
       project: this.props.projects.find(project => project.id == id)
@@ -136,11 +137,17 @@ class index extends Component {
   // };
 
   dismissModal = () => {
+    document.removeEventListener("scroll", this.handleScroll);
+
     this.setState({
       // project: {},
       isModalOpen: false
     });
     Router.push("/");
+  };
+
+  handleScroll = () => {
+    this.dismissModal();
   };
 
   onKeyDown = e => {

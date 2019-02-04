@@ -9,12 +9,14 @@ import style from "../config/style";
 import dataProjects from "../src/data/projects";
 
 // >>> Update progress bar on router events
+/*
 Router.events.on("routeChangeStart", url => {
   console.log(`Loading: ${url}`);
   NProgress.start();
 });
 Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
+*/
 
 // >>> Global styles
 const GlobalStyle = createGlobalStyle`
