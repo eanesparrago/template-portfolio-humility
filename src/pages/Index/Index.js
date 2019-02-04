@@ -105,6 +105,8 @@ const StyledWrapper = styled.div`
 
     @media (max-width: ${p => p.theme.breakpoint.tabletLandscape}) {
       width: 100%;
+      padding-bottom: 6rem;
+      margin-bottom: -6rem;
     }
   }
 
