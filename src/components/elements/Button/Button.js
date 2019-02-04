@@ -124,13 +124,29 @@ export class Button extends Component {
         );
 
       default:
-        return (
-          <StyledButton {...this.props}>
-            <Item center padding="squish-base">
-              <Typography>{this.props.children}</Typography>
-            </Item>
-          </StyledButton>
-        );
+        if (this.props.link) {
+          return (
+            <StyledButton
+              as="a"
+              href={this.props.href}
+              target="_blank"
+              rel="noreferrer"
+              {...this.props}
+            >
+              <Item center padding="squish-base">
+                <Typography>{this.props.children}</Typography>
+              </Item>
+            </StyledButton>
+          );
+        } else {
+          return (
+            <StyledButton {...this.props}>
+              <Item center padding="squish-base">
+                <Typography>{this.props.children}</Typography>
+              </Item>
+            </StyledButton>
+          );
+        }
     }
   }
 }

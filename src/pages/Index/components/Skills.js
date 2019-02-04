@@ -84,36 +84,6 @@ export class Skills extends Component {
 
         <Container margin="stack-xl">
           <Item name="skills-title" margin="stack-base">
-            <Typography as="h1">Graphic Design</Typography>
-          </Item>
-
-          <Item margin="stack-l">
-            <Typography as="h2">Web-Technologies</Typography>
-          </Item>
-
-          <Box margin="stack-m" column as="ul">
-            {frontEndSkills.map((skill, i) => (
-              <Item key={i} margin="stack-base" as="li">
-                <Typography as="h3">• {skill}</Typography>
-              </Item>
-            ))}
-          </Box>
-
-          <Item margin="stack-l">
-            <Typography as="h2">Development Tools</Typography>
-          </Item>
-
-          <Box column as="ul">
-            {frontEndSkills.map((skill, i) => (
-              <Item key={i} margin="stack-base" as="li">
-                <Typography as="h3">• {skill}</Typography>
-              </Item>
-            ))}
-          </Box>
-        </Container>
-
-        <Container margin="stack-xl">
-          <Item name="skills-title" margin="stack-base">
             <Typography as="h1">Back-End Development</Typography>
           </Item>
 

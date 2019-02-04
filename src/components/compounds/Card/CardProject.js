@@ -4,6 +4,7 @@ import { Spring, Trail, config } from "react-spring";
 import { Item, Box, Container, Area } from "../../layout";
 import { Button, Typography, Photo } from "../../elements";
 import PropTypes from "prop-types";
+import getIcon from "../../utils/getIcon";
 
 const StyledCard = styled.article`
   background-color: ${p => p.theme.color.white};
@@ -22,10 +23,15 @@ const StyledCard = styled.article`
     display: flex;
     flex-flow: column;
     justify-content: space-between;
+    /* height: 68%; */
   }
 
   .item-title {
     color: ${p => p.theme.color.primary.dark};
+  }
+
+  .item-card-project-photo {
+    height: ${p => p.theme.increment(16)};
   }
 `;
 
@@ -47,12 +53,14 @@ export default class extends Component {
 
     return (
       <StyledCard>
-        <Photo>
-          <img
-            src="https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-            alt=""
-          />
-        </Photo>
+        <Item name="card-project-photo">
+          <Photo>
+            <img
+              src={content.photos[0].link}
+              alt={content.photos[0].description}
+            />
+          </Photo>
+        </Item>
 
         <Container name="bottom" padding="inset-m">
           <Box column>
@@ -74,49 +82,47 @@ export default class extends Component {
               <Typography as="h4">{content.subtitle}</Typography>
             </Item>
 
-            <Item margin="stack-m">
-              <Typography as="p">{content.body}</Typography>
+            <Item margin="stack-base">
+              <Typography as="p">{content.description}</Typography>
             </Item>
 
             {/* >>> Technologies */}
-            <Box margin="stack-base" wrap>
-              <Item margin="inline-s">
-                <i className="fab fa-2x fa-react" />
-              </Item>
-
-              <Item margin="inline-s">
-                <i className="fab fa-2x fa-js" />
-              </Item>
-
-              <Item margin="inline-s">
-                <i className="fab fa-2x fa-html5" />
-              </Item>
-
-              <Item margin="inline-s">
-                <i className="fab fa-2x fa-css3" />
-              </Item>
-
-              <Item margin="inline-s">
-                <i className="fab fa-2x fa-node-js" />
-              </Item>
+            <Box margin="stack-l">
+              {content.technologies.map(tech => (
+                <Item margin="inline-s">
+                  <i title={tech} className={getIcon(tech)} />
+                </Item>
+              ))}
             </Box>
           </Box>
 
           {/* >>> Buttons */}
           <Box name="buttons" column align="stretch">
-            <Item margin="stack-s">
+            {content.links.demo && (
+              <Item margin="stack-s">
+                <Button
+                  link
+                  variant="secondary"
+                  href={content.links.demo}
+                  align="center"
+                  full
+                >
+                  <Item center inline margin="inline-s">
+                    Visit Demo
+                  </Item>
+
+                  <i className="fas fa-external-link-alt" />
+                </Button>
+              </Item>
+            )}
+
+            <Item>
               <Button
                 variant="primary"
                 full
                 onClick={e => showModal(e, content.id)}
               >
                 View Project
-              </Button>
-            </Item>
-
-            <Item>
-              <Button variant="secondary" full>
-                Demo
               </Button>
             </Item>
           </Box>

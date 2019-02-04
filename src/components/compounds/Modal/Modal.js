@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Spring, Trail, Transition } from "react-spring";
 import { Item, Box, Container, Area } from "../../layout";
 import { Button, Typography, Photo } from "../../elements";
+import getIcon from "../../utils/getIcon";
 
 const StyledModal = styled.div`
   .container-modal-background {
@@ -31,17 +32,19 @@ const StyledModal = styled.div`
 
   .item-modal-main-photo {
     /* border: 1px solid magenta; */
-
     height: 62%;
     width: 100%;
   }
 
   .box-modal-gallery {
     height: 38%;
+    max-width: 100%;
   }
 
   .item-modal-gallery {
     box-shadow: ${p => p.theme.shadow[1]};
+    max-width: 33%;
+    height: 62%;
   }
 
   /* >>> Modal detail */
@@ -62,11 +65,25 @@ const StyledModal = styled.div`
   .item-modal-title {
     color: ${p => p.theme.color.primary.dark};
   }
+
+  .item-modal-description {
+    color: ${p => p.theme.color.primary.dark};
+    font-weight: 700;
+  }
 `;
 
 class Modal extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      mainPhoto: props.content.photos[0]
+    };
+  }
+
   render() {
     const { content, onDismiss } = this.props;
+    const { mainPhoto } = this.state;
 
     return (
       <StyledModal>
@@ -74,47 +91,28 @@ class Modal extends Component {
 
         <Container name="modal-main">
           <Area name="modal-photos">
+            {/* >>> Main photo */}
             <Item name="modal-main-photo">
               <Photo variant="cover">
-                <img
-                  src="https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-                  alt=""
-                />
+                <img src={mainPhoto.link} alt={mainPhoto.description} />
               </Photo>
             </Item>
 
+            {/* >>> Gallery */}
             <Box
               name="modal-gallery"
               padding="inset-base"
               align="center"
+              justify="center"
               onClick={onDismiss}
             >
-              <Item name="modal-gallery" margin="inline-m">
-                <Photo variant="cover">
-                  <img
-                    src="https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-                    alt=""
-                  />
-                </Photo>
-              </Item>
-
-              <Item name="modal-gallery" margin="inline-m">
-                <Photo variant="cover">
-                  <img
-                    src="https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-                    alt=""
-                  />
-                </Photo>
-              </Item>
-
-              <Item name="modal-gallery" margin="inline-m">
-                <Photo variant="cover">
-                  <img
-                    src="https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-                    alt=""
-                  />
-                </Photo>
-              </Item>
+              {content.photos.map((photo, i) => (
+                <Item name="modal-gallery" margin="inline-m" key={i}>
+                  <Photo variant="cover">
+                    <img src={photo.link} alt={photo.description} />
+                  </Photo>
+                </Item>
+              ))}
             </Box>
           </Area>
 
@@ -125,33 +123,69 @@ class Modal extends Component {
               </Button>
             </Container>
 
+            {/* >>> Category */}
             <Item margin="stack-l">
               <Typography variant="caption">{content.category}</Typography>
             </Item>
 
+            {/* >>> Title */}
             <Item name="modal-title" margin="stack-m">
               <Typography as="h1">{content.title}</Typography>
             </Item>
 
-            <Item margin="stack-base">
+            {/* >>> Subtitle */}
+            <Item margin="stack-m">
               <Typography as="h2">{content.subtitle}</Typography>
             </Item>
 
-            <Item margin="stack-l">
+            {/* >>> Date */}
+            <Item margin="stack-base">
+              <Typography variant="caption">{content.date}</Typography>
+            </Item>
+
+            {/* >>> Description */}
+            <Item name="modal-description" margin="stack-m">
+              <Typography as="p">{content.description}</Typography>
+            </Item>
+
+            {/* >>> Technologies */}
+            <Box margin="stack-base" wrap>
+              {content.technologies.map(tech => (
+                <Item margin="inline-m">
+                  <i title={tech} className={getIcon(tech)} />
+                </Item>
+              ))}
+            </Box>
+
+            {/* >>> Body */}
+            <Item margin="stack-base">
               <Typography as="p">{content.body}</Typography>
             </Item>
 
-            <Item margin="stack-s">
-              <Button variant="primary" full>
-                View Project
-              </Button>
-            </Item>
+            {/* >>> Buttons */}
+            {content.links.demo && (
+              <Item margin="stack-s">
+                <Button link variant="secondary" href={content.links.demo} full>
+                  <Item center inline margin="inline-s">
+                    Visit Demo
+                  </Item>
 
-            <Item>
-              <Button variant="secondary" full>
-                Visit Demo
-              </Button>
-            </Item>
+                  <i className="fas fa-external-link-alt" />
+                </Button>
+              </Item>
+            )}
+
+            {content.links.github && (
+              <Item>
+                <Button link variant="primary" href={content.links.github} full>
+                  <Item center inline margin="inline-s">
+                    Visit on Github
+                  </Item>
+
+                  <i className="fab fa-github" />
+                </Button>
+              </Item>
+            )}
           </Area>
         </Container>
       </StyledModal>
