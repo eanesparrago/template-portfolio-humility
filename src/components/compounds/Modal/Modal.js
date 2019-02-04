@@ -21,13 +21,23 @@ const StyledModal = styled.div`
     width: 100%;
     height: 100%;
     z-index: 101;
+
+    @media (max-width: ${p => p.theme.breakpoint.desktopM}) {
+      flex-flow: column;
+      overflow-y: auto;
+    }
   }
 
   /* >>> Modal photos */
   .area-modal-photos {
     /* border: 1px solid magenta; */
     min-width: 62%;
-    height: 100%;
+    /* height: 100%; */
+
+    @media (max-width: ${p => p.theme.breakpoint.desktopM}) {
+      min-width: 100%;
+      height: ${p => p.theme.incrementFixed(18)};
+    }
   }
 
   .item-modal-main-photo {
@@ -37,14 +47,27 @@ const StyledModal = styled.div`
   }
 
   .box-modal-gallery {
+    /* border: 1px solid cyan; */
     height: 38%;
     max-width: 100%;
+
+    @media (max-width: ${p => p.theme.breakpoint.desktopM}) {
+      > *:last-child {
+        /* border: 1px solid magenta; */
+        margin: 0;
+      }
+    }
   }
 
   .item-modal-gallery {
+    /* border: 1px solid magenta; */
+    flex: 1 0;
     box-shadow: ${p => p.theme.shadow[1]};
-    max-width: 33%;
     height: 62%;
+
+    @media (max-width: ${p => p.theme.breakpoint.desktopM}) {
+      height: 100%;
+    }
   }
 
   /* >>> Modal detail */
@@ -53,6 +76,11 @@ const StyledModal = styled.div`
     background-color: ${p => p.theme.color.white};
     min-width: 38%;
     width: 100%;
+    padding-bottom: ${p => p.theme.increment(6)};
+
+    @media (max-width: ${p => p.theme.breakpoint.desktopM}) {
+      min-width: 100%;
+    }
   }
 
   .container-modal-close {
@@ -60,10 +88,18 @@ const StyledModal = styled.div`
     top: 0;
     right: 0;
     z-index: 102;
+
+    @media (max-width: ${p => p.theme.breakpoint.desktopM}) {
+      color: ${p => p.theme.color.primary.light};
+    }
   }
 
   .item-modal-title {
     color: ${p => p.theme.color.primary.dark};
+
+    @media (max-width: ${p => p.theme.breakpoint.desktopM}) {
+      margin-bottom: var(--size-l);
+    }
   }
 
   .item-modal-description {
@@ -116,6 +152,7 @@ class Modal extends Component {
             </Box>
           </Area>
 
+          {/* >>> Close */}
           <Area name="modal-detail" padding="inset-base">
             <Container name="modal-close" padding="inset-base">
               <Button variant="icon" onClick={onDismiss}>

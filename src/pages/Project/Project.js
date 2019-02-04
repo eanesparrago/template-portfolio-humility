@@ -11,29 +11,31 @@ const StyledWrapper = styled.div`
   .container-wrapper-main {
     display: flex;
     align-items: stretch;
+
+    @media (max-width: ${p => p.theme.breakpoint.tabletLandscape}) {
+      flex-flow: column;
+    }
   }
 
   /* >>> AREA: sidebar */
   .area-wrapper-sidebar {
     min-width: ${p => p.theme.incrementFixed(16)};
     max-width: ${p => p.theme.incrementFixed(16)};
-  }
 
-  /* ------>>> BOX: sidebar */
-  .box-wrapper-sidebar {
-    min-width: ${p => p.theme.incrementFixed(16)};
-    max-width: ${p => p.theme.incrementFixed(16)};
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    min-height: 100vh;
+    @media (max-width: ${p => p.theme.breakpoint.tabletLandscape}) {
+      min-width: 100%;
+      max-width: initial;
+    }
   }
 
   /* ------>>> ITEM: sidebar */
   .item-wrapper-sidebar {
     overflow-y: auto;
     background-color: ${p => p.theme.color.white};
+
+    @media (max-width: ${p => p.theme.breakpoint.tabletLandscape}) {
+      display: none;
+    }
   }
 
   /* ------>>> ITEM: nav-status-bar */
@@ -41,6 +43,19 @@ const StyledWrapper = styled.div`
     /* border: 1px solid magenta; */
     flex: 1;
     min-height: 100vh;
+    z-index: 100;
+
+    @media (max-width: ${p => p.theme.breakpoint.tabletLandscape}) {
+      /* border: 1px solid magenta; */
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      flex: unset;
+      min-height: unset;
+      height: ${p => p.theme.increment(4)};
+      z-index: 200;
+    }
   }
 
   /* >>> AREA: content */
@@ -55,45 +70,10 @@ const StyledWrapper = styled.div`
     left: ${p => p.theme.incrementFixed(16)};
     right: 0;
     height: 100vh;
-  }
 
-  /* ------>>> CONTAINER: projects */
-  .container-wrapper-projects {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    padding-right: 0;
-    position: relative;
-  }
-
-  /* ======------>>> ITEM: card */
-  .item-wrapper-card {
-    /* border: 1px solid magenta; */
-    min-width: ${p => p.theme.incrementFixed(12)};
-    max-width: ${p => p.theme.incrementFixed(16)};
-  }
-
-  /* ------>>> CONTAINER: skills */
-  .container-wrapper-skills {
-    background-color: ${p => p.theme.color.primary.dark};
-    color: ${p => p.theme.color.light};
-  }
-
-  /* ======------>>> ITEM: skills */
-  .item-wrapper-skills {
-    width: calc(100% / 1.618);
-  }
-
-  /* ------>>> CONTAINER: about-me */
-  .container-wrapper-about-me {
-    background-color: ${p => p.theme.color.dark};
-    color: ${p => p.theme.color.light};
-    min-height: 100vh;
-  }
-
-  /* ======------>>> ITEM: about-me */
-  .item-wrapper-about-me {
-    width: calc(100% / 1.618);
+    @media (max-width: ${p => p.theme.breakpoint.tabletLandscape}) {
+      left: 0;
+    }
   }
 `;
 

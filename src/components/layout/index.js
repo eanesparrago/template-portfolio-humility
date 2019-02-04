@@ -170,13 +170,13 @@ const spacingProperties = ({
         (padding === "stretch-s" && stretchSMobile) ||
         (padding === "stretch-m" && stretchMMobile)};
 
-      margin: ${(margin === "stack-base" && stackBaseMobile) ||
+      margin: ${/*(margin === "stack-base" && stackBaseMobile) ||
         (margin === "stack-xs" && stackXsMobile) ||
         (margin === "stack-s" && stackSMobile) ||
         (margin === "stack-m" && stackMMobile) ||
         (margin === "stack-l" && stackLMobile) ||
-        (margin === "stack-xl" && stackXlMobile) ||
-        (margin === "inline-base" && inlineBaseMobile) ||
+        (margin === "stack-xl" && stackXlMobile) ||*/
+      (margin === "inline-base" && inlineBaseMobile) ||
         (margin === "inline-xs" && inlineXsMobile) ||
         (margin === "inline-s" && inlineSMobile) ||
         (margin === "inline-m" && inlineMMobile) ||

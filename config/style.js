@@ -10,14 +10,23 @@ export default {
   //   desktopXXL: "160em" // >>> 2560px
   // },
   breakpoint: {
-    phone: "0px", // >>> 
-    tabletPortrait: "600px", // >>> 
-    tabletLandscape: "900px", // >>> 
-    desktopM: "1200px", // >>> 
-    desktopL: "1500px", // >>> 
-    desktopXL: "1800px", // >>> 
-    desktopXXL: "2000px"
+    phone: "0rem", // >>> 
+    tabletPortrait: "37.5rem", // >>> 
+    tabletLandscape: "56.25rem", // >>> 
+    desktopM: "75rem", // >>> 
+    desktopL: "93.75rem", // >>> 
+    desktopXL: "112.5rem", // >>> 
+    desktopXXL: "125rem"
   },
+  // breakpoint: {
+  //   phone: "0px", // >>> 
+  //   tabletPortrait: "600px", // >>> 
+  //   tabletLandscape: "900px", // >>> 
+  //   desktopM: "1200px", // >>> 
+  //   desktopL: "1500px", // >>> 
+  //   desktopXL: "1800px", // >>> 
+  //   desktopXXL: "2000px"
+  // },
   font: {
     sansSerif: "PT Sans, sans-serif",
     serif: "PT Serif, serif",

@@ -37,7 +37,7 @@ const StyledButton = styled.button`
 `;
 
 const StyledButtonText = styled.button`
-  color: ${p => p.theme.color.dark};
+  /* color: ${p => p.theme.color.dark}; */
   transition-property: color, transform;
   transition-duration: 100ms;
   min-height: var(--size-button);

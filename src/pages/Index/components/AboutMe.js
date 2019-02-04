@@ -8,6 +8,12 @@ import { Typography } from "../../../components/elements";
 const StyledAboutMe = styled.div`
   padding-top: ${p => p.theme.increment(4)};
   padding-left: ${p => p.theme.increment(2)};
+  padding-bottom: ${p => p.theme.increment(8)};
+
+  @media (max-width: ${p => p.theme.breakpoint.tabletPortrait}) {
+    padding-left: ${p => p.theme.increment(2)};
+    padding-right: ${p => p.theme.increment(2)};
+  }
 
   .item-about-me-quote {
     h1 {
@@ -16,6 +22,16 @@ const StyledAboutMe = styled.div`
     h1::before {
       content: none;
     }
+
+    /* @media (max-width: ${p => p.theme.breakpoint.tabletPortrait}) {
+      text-align: center;
+      h1 {
+        text-indent: 0;
+      }
+      h1::before {
+        content: "";
+      }
+    } */
   }
 `;
 
@@ -29,7 +45,7 @@ export class AboutMe extends Component {
           <Item name="about-me-quote" margin="stack-xl">
             <Typography as="h1">
               &ldquo;Some stars burn out and die. Bigger stars burn out and die
-              with&nbsp;PASSION.&rdquo; &mdash;&nbsp;Bill Wurtz
+              with PASSION.&rdquo; &mdash;&nbsp;Bill&nbsp;Wurtz
             </Typography>
           </Item>
 

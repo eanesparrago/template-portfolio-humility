@@ -54,8 +54,8 @@ const GlobalStyle = createGlobalStyle`
   html {
     font-size: 16px;
 
-    @media (max-width: ${style.breakpoint.tabletLandscape}) {
-      font-size: 15px;
+    @media (max-width: ${style.breakpoint.tabletPortrait}) {
+      font-size: 13px;
     }
 
     @media (min-width: ${style.breakpoint.tabletLandscape}) {
@@ -85,8 +85,8 @@ const GlobalStyle = createGlobalStyle`
     font-size: 19px;
     background-color: ${style.color.light};
 
-    @media (max-width: ${style.breakpoint.tabletLandscape}) {
-      font-size: 16px;
+    @media (max-width: ${style.breakpoint.tabletPortrait}) {
+      font-size: 15px;
     }
 
     @media (min-width: ${style.breakpoint.tabletLandscape}) {

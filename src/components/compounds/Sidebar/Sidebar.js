@@ -36,6 +36,12 @@ const StyledSidebar = styled.section`
     -webkit-font-smoothing: subpixel-antialiased;
   }
 
+  .box-sidebar-nav {
+    @media (max-width: ${p => p.theme.breakpoint.tabletLandscape}) {
+      display: none;
+    }
+  }
+
   .box-copyright {
     margin: 0 auto;
   }
@@ -170,7 +176,7 @@ export default class extends Component {
             </Box>
 
             {/* >>> Nav */}
-            <Box column as="nav" margin="stack-base">
+            <Box name="sidebar-nav" column as="nav" margin="stack-base">
               <Trail
                 delay={800}
                 config={config.stiff}

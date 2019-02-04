@@ -60,12 +60,24 @@ const StyledWrapper = styled.div`
   .container-wrapper-main {
     display: flex;
     align-items: stretch;
+
+    @media (max-width: ${p => p.theme.breakpoint.tabletLandscape}) {
+      flex-flow: column;
+      max-width: 100vw;
+      overflow: none;
+      overflow-x: none !important;
+    }
   }
 
   /* >>> AREA: sidebar */
   .area-wrapper-sidebar {
     min-width: ${p => p.theme.incrementFixed(16)};
     max-width: ${p => p.theme.incrementFixed(16)};
+
+    @media (max-width: ${p => p.theme.breakpoint.tabletLandscape}) {
+      min-width: 100%;
+      max-width: initial;
+    }
   }
 
   /* ------>>> BOX: sidebar */
@@ -77,12 +89,23 @@ const StyledWrapper = styled.div`
     left: 0;
     bottom: 0;
     min-height: 100vh;
+
+    @media (max-width: ${p => p.theme.breakpoint.tabletLandscape}) {
+      min-width: 100%;
+      max-width: initial;
+      position: relative;
+      min-height: initial;
+    }
   }
 
   /* ------>>> ITEM: sidebar */
   .item-wrapper-sidebar {
     overflow-y: auto;
     background-color: ${p => p.theme.color.white};
+
+    @media (max-width: ${p => p.theme.breakpoint.tabletLandscape}) {
+      width: 100%;
+    }
   }
 
   /* ------>>> ITEM: nav-status-bar */
@@ -90,6 +113,19 @@ const StyledWrapper = styled.div`
     /* border: 1px solid magenta; */
     flex: 1;
     min-height: 100vh;
+    z-index: 50;
+
+    @media (max-width: ${p => p.theme.breakpoint.tabletLandscape}) {
+      /* border: 1px solid magenta; */
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      flex: unset;
+      min-height: unset;
+      height: ${p => p.theme.increment(4)};
+      z-index: 200;
+    }
   }
 
   /* >>> AREA: content */
@@ -104,6 +140,10 @@ const StyledWrapper = styled.div`
     left: ${p => p.theme.incrementFixed(16)};
     right: 0;
     height: 100vh;
+
+    @media (max-width: ${p => p.theme.breakpoint.tabletLandscape}) {
+      left: 0
+    }
   }
 
   /* ------>>> CONTAINER: projects */
@@ -133,6 +173,10 @@ const StyledWrapper = styled.div`
   /* ======------>>> ITEM: skills */
   .item-wrapper-skills {
     width: calc(100% / 1.618);
+
+    @media (max-width: ${p => p.theme.breakpoint.tabletLandscape}) {
+      width: unset;
+    }
   }
 
   /* ------>>> CONTAINER: about-me */
@@ -145,6 +189,10 @@ const StyledWrapper = styled.div`
   /* ======------>>> ITEM: about-me */
   .item-wrapper-about-me {
     width: calc(100% / 1.618);
+
+    @media (max-width: ${p => p.theme.breakpoint.tabletLandscape}) {
+      width: unset;
+    }
   }
 `;
 
@@ -164,17 +212,6 @@ class index extends Component {
   }
 
   // >>> Dynamic
-  // showModal = (e, id) => {
-  //   e.preventDefault();
-  //   document.addEventListener("scroll", this.handleScroll);
-
-  //   this.setState({
-  //     project: this.props.projects.find(project => project.id == id)
-  //   });
-  //   Router.push(`/?projectId=${id}`, `/project?id=${id}`);
-  // };
-
-  // >>> Static
   showModal = (e, id) => {
     e.preventDefault();
     document.addEventListener("scroll", this.handleScroll);
@@ -182,8 +219,19 @@ class index extends Component {
     this.setState({
       project: this.props.projects.find(project => project.id == id)
     });
-    Router.push(`/?projectId=${id}`, `/project/${id}`);
+    Router.push(`/?projectId=${id}`, `/project?id=${id}`);
   };
+
+  // >>> Static
+  // showModal = (e, id) => {
+  //   e.preventDefault();
+  //   document.addEventListener("scroll", this.handleScroll);
+
+  //   this.setState({
+  //     project: this.props.projects.find(project => project.id == id)
+  //   });
+  //   Router.push(`/?projectId=${id}`, `/project/${id}`);
+  // };
 
   dismissModal = () => {
     document.removeEventListener("scroll", this.handleScroll);
@@ -228,101 +276,100 @@ class index extends Component {
     const { currentSection } = this.state;
 
     return (
-      <scroll-container>
-        <StyledWrapper>
-          <Spring native from={{ opacity: "0" }} to={{ opacity: "1" }}>
-            {props => (
-              <Container name="wrapper-main" animate={props}>
-                {/* >>> SIDEBAR */}
-                <Area name="wrapper-sidebar">
-                  <Box name="wrapper-sidebar">
-                    <Spring
-                      native
-                      from={{ transform: "translateX(-110vh)" }}
-                      to={{ transform: "translateX(0)" }}
-                    >
-                      {props => (
-                        <Item name="wrapper-sidebar" animate={props}>
-                          <SidebarContainer
-                            sidebarContent={sidebarContent}
-                            handleMenuClick={this.handleMenuClick}
-                          />
-                        </Item>
-                      )}
-                    </Spring>
+      <StyledWrapper>
+        <Spring native from={{ opacity: "0" }} to={{ opacity: "1" }}>
+          {props => (
+            <Container name="wrapper-main" animate={props}>
+              {/* >>> SIDEBAR */}
+              <Area name="wrapper-sidebar">
+                <Box name="wrapper-sidebar">
+                  <Spring
+                    native
+                    from={{ transform: "translateX(-110vh)" }}
+                    to={{ transform: "translateX(0)" }}
+                  >
+                    {props => (
+                      <Item name="wrapper-sidebar" animate={props}>
+                        <SidebarContainer
+                          sidebarContent={sidebarContent}
+                          handleMenuClick={this.handleMenuClick}
+                        />
+                      </Item>
+                    )}
+                  </Spring>
 
+                  <Spring
+                    delay={500}
+                    native
+                    config={config.slow}
+                    from={{ transform: "translateY(-100%)" }}
+                    to={{ transform: "translateY(0)" }}
+                  >
+                    {props => (
+                      <Item name="wrapper-nav-status-bar" animate={props}>
+                        <NavStatusBarContainer content={currentSection} />
+                      </Item>
+                    )}
+                  </Spring>
+                </Box>
+              </Area>
+
+              {/* >>> CONTENT */}
+              <Area>
+                {/* >>> MODAL */}
+                <Transition
+                  native
+                  items={router.query.projectId}
+                  from={{ transform: "translate3d(0,110vh,0)" }}
+                  enter={{ transform: "translate3d(0,0px,0)" }}
+                  leave={{ transform: "translate3d(0,110vh,0)" }}
+                >
+                  {show =>
+                    show &&
+                    (props => (
+                      <Container name="modal" animate={props}>
+                        <ModalContainer
+                          id={router.query.projectId}
+                          onDismiss={this.dismissModal}
+                          content={this.state.project}
+                        />
+                      </Container>
+                    ))
+                  }
+                </Transition>
+
+                {/* >>> PROJECTS */}
+                <Waypoint
+                  onEnter={() => {
+                    this.handleSectionScroll("Projects");
+                  }}
+                  onLeave={() => {
+                    this.handleSectionScroll("Skills");
+                  }}
+                  topOffset={"500px"}
+                >
+                  <div>
                     <Spring
-                      delay={500}
+                      delay={1200}
                       native
                       config={config.slow}
-                      from={{ transform: "translateY(-100%)" }}
-                      to={{ transform: "translateY(0)" }}
+                      from={{
+                        opacity: "0",
+                        transform: "translateY(6em)"
+                      }}
+                      to={{
+                        opacity: "1",
+                        transform: "translateY(0)"
+                      }}
                     >
                       {props => (
-                        <Item name="wrapper-nav-status-bar" animate={props}>
-                          <NavStatusBarContainer content={currentSection} />
-                        </Item>
-                      )}
-                    </Spring>
-                  </Box>
-                </Area>
-
-                {/* >>> CONTENT */}
-                <Area>
-                  {/* >>> MODAL */}
-                  <Transition
-                    native
-                    items={router.query.projectId}
-                    from={{ transform: "translate3d(0,110vh,0)" }}
-                    enter={{ transform: "translate3d(0,0px,0)" }}
-                    leave={{ transform: "translate3d(0,110vh,0)" }}
-                  >
-                    {show =>
-                      show &&
-                      (props => (
-                        <Container name="modal" animate={props}>
-                          <ModalContainer
-                            id={router.query.projectId}
-                            onDismiss={this.dismissModal}
-                            content={this.state.project}
-                          />
-                        </Container>
-                      ))
-                    }
-                  </Transition>
-
-                  {/* >>> PROJECTS */}
-                  <Waypoint
-                    onEnter={() => {
-                      this.handleSectionScroll("Projects");
-                    }}
-                    onLeave={() => {
-                      this.handleSectionScroll("Skills");
-                    }}
-                    topOffset={"500px"}
-                  >
-                    <div>
-                      <Spring
-                        delay={1200}
-                        native
-                        config={config.slow}
-                        from={{
-                          opacity: "0",
-                          transform: "translateY(6em)"
-                        }}
-                        to={{
-                          opacity: "1",
-                          transform: "translateY(0)"
-                        }}
-                      >
-                        {props => (
-                          <Container
-                            id="projects"
-                            name="wrapper-projects"
-                            padding="inset-base"
-                            animate={props}
-                          >
-                            {/* <Trail
+                        <Container
+                          id="projects"
+                          name="wrapper-projects"
+                          padding="inset-base"
+                          animate={props}
+                        >
+                          {/* <Trail
                           delay={800}
                           native
                           items={projects}
@@ -352,77 +399,76 @@ class index extends Component {
                           )}
                         </Trail> */}
 
-                            {projects.map(project => (
-                              <Item
-                                name="wrapper-card"
-                                key={project.id}
-                                margin="wrap-base"
-                              >
-                                <Card
-                                  content={project}
-                                  showModal={this.showModal}
-                                />
-                              </Item>
-                            ))}
-                          </Container>
-                        )}
-                      </Spring>
-                    </div>
-                  </Waypoint>
+                          {projects.map(project => (
+                            <Item
+                              name="wrapper-card"
+                              key={project.id}
+                              margin="wrap-base"
+                            >
+                              <Card
+                                content={project}
+                                showModal={this.showModal}
+                              />
+                            </Item>
+                          ))}
+                        </Container>
+                      )}
+                    </Spring>
+                  </div>
+                </Waypoint>
 
-                  {/* >>> SKILLS */}
-                  <Waypoint
-                    onEnter={() => {
-                      this.handleSectionScroll("Skills");
-                    }}
-                    onLeave={() => {
-                      this.handleSectionScroll("Projects");
-                    }}
-                    bottomOffset={"500px"}
-                    topOffset={"500px"}
-                  >
-                    <div>
-                      <Container
-                        id="skills"
-                        name="wrapper-skills"
-                        padding="inset-base"
-                      >
-                        <Item name="wrapper-skills">
-                          <Skills />
-                        </Item>
-                      </Container>
-                    </div>
-                  </Waypoint>
+                {/* >>> SKILLS */}
+                <Waypoint
+                  onEnter={() => {
+                    this.handleSectionScroll("Skills");
+                  }}
+                  // onLeave={() => {
+                  //   this.handleSectionScroll("Projects");
+                  // }}
+                  bottomOffset={"500px"}
+                  topOffset={"500px"}
+                >
+                  <div>
+                    <Container
+                      id="skills"
+                      name="wrapper-skills"
+                      padding="inset-base"
+                    >
+                      <Item name="wrapper-skills">
+                        <Skills />
+                      </Item>
+                    </Container>
+                  </div>
+                </Waypoint>
 
-                  {/* >>> ABOUT ME */}
+                {/* >>> ABOUT ME */}
 
-                  <Waypoint
-                    onEnter={() => {
-                      this.handleSectionScroll("About Me");
-                    }}
-                    onLeave={() => {
-                      this.handleSectionScroll("Skills");
-                    }}
-                    bottomOffset={"500px"}
-                  >
-                    <div>
-                      <Container
-                        id="about-me"
-                        name="wrapper-about-me"
-                        padding="inset-base"
-                      >
-                        <Item name="wrapper-about-me">
-                          <AboutMe />
-                        </Item>
-                      </Container>
-                    </div>
-                  </Waypoint>
-                </Area>
-              </Container>
-            )}
-          </Spring>
-        </StyledWrapper>
-      </scroll-container>
+                <Waypoint
+                  onEnter={() => {
+                    this.handleSectionScroll("About Me");
+                  }}
+                  onLeave={() => {
+                    this.handleSectionScroll("Skills");
+                  }}
+                  bottomOffset={"500px"}
+                >
+                  <div>
+                    <Container
+                      id="about-me"
+                      name="wrapper-about-me"
+                      padding="inset-base"
+                    >
+                      <Item name="wrapper-about-me">
+                        <AboutMe />
+                      </Item>
+                    </Container>
+                  </div>
+                </Waypoint>
+              </Area>
+            </Container>
+          )}
+        </Spring>
+      </StyledWrapper>
     );
   }
 }

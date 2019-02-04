@@ -9,7 +9,9 @@ const StyledSkills = styled.div`
   padding-top: ${p => p.theme.increment(4)};
   padding-left: ${p => p.theme.increment(2)};
 
-  .item-skills-title {
+  @media (max-width: ${p => p.theme.breakpoint.tabletPortrait}) {
+    padding-left: ${p => p.theme.increment(1)};
+    padding-right: ${p => p.theme.increment(1)};
   }
 `;
 

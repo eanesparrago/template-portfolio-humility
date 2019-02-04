@@ -30,6 +30,11 @@ const StyledNavStatusBar = styled.div`
     text-orientation: upright;
     writing-mode: vertical-rl;
     user-select: none;
+
+    @media (max-width: ${p => p.theme.breakpoint.tabletLandscape}) {
+      writing-mode: unset;
+      letter-spacing: 0.125em;
+    }
   }
 `;
 
