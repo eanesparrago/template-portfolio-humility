@@ -53,6 +53,7 @@ const GlobalStyle = createGlobalStyle`
 
   html {
     font-size: 16px;
+    scroll-behavior: smooth;
 
     @media (max-width: ${style.breakpoint.tabletPortrait}) {
       font-size: 13px;
