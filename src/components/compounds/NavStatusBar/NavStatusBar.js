@@ -109,7 +109,7 @@ class NavStatusBar extends Component {
 
     return (
       <StyledNavStatusBar content={content}>
-        <Item name={`text ${isMenuOpen && "item-text--hidden"}`}>
+        <Item center name={`text ${isMenuOpen && "item-text--hidden"}`}>
           <Typography>{content}</Typography>
         </Item>
 
