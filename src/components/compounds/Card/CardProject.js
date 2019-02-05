@@ -89,8 +89,8 @@ export default class extends Component {
 
             {/* >>> Technologies */}
             <Box margin="stack-l">
-              {content.technologies.map(tech => (
-                <Item margin="inline-s">
+              {content.technologies.map((tech, i) => (
+                <Item key={i} margin="inline-s">
                   <i title={tech} className={getIcon(tech)} />
                 </Item>
               ))}

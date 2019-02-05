@@ -131,8 +131,12 @@ class project extends Component {
   };
 
   handleMenuClick = title => {
-    const anchor = title.toLowerCase().replace(/ /, "-");
-    Router.push(`/#${anchor}`);
+    if (title === "Projects") {
+      Router.push(`/`);
+    } else {
+      const anchor = title.toLowerCase().replace(/ /, "-");
+      Router.push(`/#${anchor}`);
+    }
   };
 
   render() {

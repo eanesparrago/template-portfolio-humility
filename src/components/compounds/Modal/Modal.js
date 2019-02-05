@@ -32,7 +32,6 @@ const StyledModal = styled.div`
   .area-modal-photos {
     /* border: 1px solid magenta; */
     min-width: 62%;
-    /* height: 100%; */
 
     @media (max-width: ${p => p.theme.breakpoint.desktopM}) {
       min-width: 100%;
@@ -50,6 +49,7 @@ const StyledModal = styled.div`
     /* border: 1px solid cyan; */
     height: 38%;
     max-width: 100%;
+    position: relative;
 
     @media (max-width: ${p => p.theme.breakpoint.desktopM}) {
       > *:last-child {
@@ -59,14 +59,40 @@ const StyledModal = styled.div`
     }
   }
 
+  .container-modal-dismiss-background {
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    cursor: pointer;
+  }
+
   .item-modal-gallery {
     /* border: 1px solid magenta; */
     flex: 1 0;
     box-shadow: ${p => p.theme.shadow[1]};
     height: 62%;
+    transition-duration: 200ms;
+    transition-timing-function: ease-out;
+    z-index: 100;
 
     @media (max-width: ${p => p.theme.breakpoint.desktopM}) {
       height: 100%;
+    }
+
+    &:hover {
+      box-shadow: ${p => p.theme.shadow[2]};
+    }
+
+    &--active {
+      transform: translateY(-1rem);
+      cursor: auto;
+
+      @media (max-width: ${p => p.theme.breakpoint.desktopM}) {
+        transform: translateY(-0.5rem);
+      }
     }
   }
 
@@ -117,6 +143,10 @@ class Modal extends Component {
     };
   }
 
+  handlePhotoClick = i => {
+    this.setState({ mainPhoto: this.props.content.photos[i] });
+  };
+
   render() {
     const { content, onDismiss } = this.props;
     const { mainPhoto } = this.state;
@@ -140,10 +170,17 @@ class Modal extends Component {
               padding="inset-base"
               align="center"
               justify="center"
-              onClick={onDismiss}
             >
+              <Container name="modal-dismiss-background" onClick={onDismiss} />
+
               {content.photos.map((photo, i) => (
-                <Item name="modal-gallery" margin="inline-m" key={i}>
+                <Item
+                  name={`modal-gallery ${mainPhoto.link === photo.link &&
+                    "item-modal-gallery--active"}`}
+                  margin="inline-m"
+                  key={i}
+                  onClick={() => this.handlePhotoClick(i)}
+                >
                   <Photo variant="cover">
                     <img src={photo.link} alt={photo.description} />
                   </Photo>
@@ -187,8 +224,8 @@ class Modal extends Component {
 
             {/* >>> Technologies */}
             <Box margin="stack-base" wrap>
-              {content.technologies.map(tech => (
-                <Item margin="inline-m">
+              {content.technologies.map((tech, i) => (
+                <Item key={i} margin="inline-m">
                   <i title={tech} className={getIcon(tech)} />
                 </Item>
               ))}
