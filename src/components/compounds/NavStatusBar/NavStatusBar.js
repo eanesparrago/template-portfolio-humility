@@ -19,10 +19,6 @@ const StyledNavStatusBar = styled.div`
     (p.content === "About Me" && p.theme.color.primary.dark)};
   transition-duration: 300ms;
 
-  @media (max-width: ${p => p.theme.breakpoint.tabletLandscape}) {
-    /* border-top: var(--size-xxs) solid ${p => p.theme.color.light}; */
-  }
-
   > .item-text {
     /* border: 1px solid magenta; */
     /* transform: rotate(-90deg); */

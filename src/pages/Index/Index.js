@@ -160,6 +160,7 @@ const StyledWrapper = styled.div`
     justify-content: center;
     padding-right: 0;
     position: relative;
+
   }
 
   /* ======------>>> ITEM: card */
@@ -371,7 +372,7 @@ class index extends Component {
                   topOffset={"500px"}
                 >
                   <div>
-                    <Spring
+                    {/* <Spring
                       delay={1200}
                       native
                       config={config.slow}
@@ -384,13 +385,13 @@ class index extends Component {
                         transform: "translateY(0)"
                       }}
                     >
-                      {props => (
-                        <Container
-                          name="wrapper-projects"
-                          padding="inset-base"
-                          animate={props}
-                        >
-                          {/* <Trail
+                      {props => ( */}
+                    <Container
+                      name="wrapper-projects"
+                      padding="inset-base"
+                      // animate={props}
+                    >
+                      <Trail
                           delay={800}
                           native
                           items={projects}
@@ -418,23 +419,20 @@ class index extends Component {
                               />
                             </Item>
                           )}
-                        </Trail> */}
+                        </Trail>
 
-                          {projects.map(project => (
-                            <Item
-                              name="wrapper-card"
-                              key={project.id}
-                              margin="wrap-base"
-                            >
-                              <Card
-                                content={project}
-                                showModal={this.showModal}
-                              />
-                            </Item>
-                          ))}
-                        </Container>
-                      )}
-                    </Spring>
+                      {/* {projects.map(project => (
+                        <Item
+                          name="wrapper-card"
+                          key={project.id}
+                          margin="wrap-base"
+                        >
+                          <Card content={project} showModal={this.showModal} />
+                        </Item>
+                      ))} */}
+                    </Container>
+                    {/* )} 
+                    </Spring> */}
                   </div>
                 </Waypoint>
 
