@@ -8,6 +8,11 @@ export default class NavStatusBarContainer extends Component {
   static defaultProps = {};
 
   render() {
-    return <NavStatusBar content={this.props.content} />;
+    return (
+      <NavStatusBar
+        content={this.props.content}
+        handleMenuClick={this.props.handleMenuClick}
+      />
+    );
   }
 }

@@ -132,6 +132,9 @@ const StyledModal = styled.div`
     color: ${p => p.theme.color.primary.dark};
     font-weight: 700;
   }
+
+  .item-modal-back {
+  }
 `;
 
 class Modal extends Component {
@@ -193,7 +196,7 @@ class Modal extends Component {
           <Area name="modal-detail" padding="inset-base">
             <Container name="modal-close" padding="inset-base">
               <Button variant="icon" onClick={onDismiss}>
-                <i className="fas fa-2x fa-times" />
+                <i title="Close project" className="fas fa-2x fa-times" />
               </Button>
             </Container>
 
@@ -250,7 +253,7 @@ class Modal extends Component {
             )}
 
             {content.links.github && (
-              <Item>
+              <Item margin="stack-base">
                 <Button link variant="primary" href={content.links.github} full>
                   <Item center inline margin="inline-s">
                     Visit on Github
@@ -260,6 +263,12 @@ class Modal extends Component {
                 </Button>
               </Item>
             )}
+
+            <Item name="modal-back" inline>
+              <Button variant="icon" onClick={onDismiss}>
+                <i title="Close project" className="fas fa-2x fa-arrow-left" />
+              </Button>
+            </Item>
           </Area>
         </Container>
       </StyledModal>

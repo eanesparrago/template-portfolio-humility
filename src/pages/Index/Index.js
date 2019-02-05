@@ -181,7 +181,7 @@ const StyledWrapper = styled.div`
   .item-wrapper-skills {
     width: calc(100% / 1.618);
 
-    @media (max-width: ${p => p.theme.breakpoint.tabletLandscape}) {
+    @media (max-width: ${p => p.theme.breakpoint.desktopM}) {
       width: unset;
     }
   }
@@ -197,7 +197,7 @@ const StyledWrapper = styled.div`
   .item-wrapper-about-me {
     width: calc(100% / 1.618);
 
-    @media (max-width: ${p => p.theme.breakpoint.tabletLandscape}) {
+    @media (max-width: ${p => p.theme.breakpoint.desktopM}) {
       width: unset;
     }
   }
@@ -295,7 +295,7 @@ class index extends Component {
     const { currentSection } = this.state;
 
     return (
-      <StyledWrapper>
+      <StyledWrapper id="projects">
         <Spring native from={{ opacity: "0" }} to={{ opacity: "1" }}>
           {props => (
             <Container name="wrapper-main" animate={props}>
@@ -326,7 +326,10 @@ class index extends Component {
                   >
                     {props => (
                       <Item name="wrapper-nav-status-bar" animate={props}>
-                        <NavStatusBarContainer content={currentSection} />
+                        <NavStatusBarContainer
+                          content={currentSection}
+                          handleMenuClick={this.handleMenuClick}
+                        />
                       </Item>
                     )}
                   </Spring>
@@ -383,7 +386,6 @@ class index extends Component {
                     >
                       {props => (
                         <Container
-                          id="projects"
                           name="wrapper-projects"
                           padding="inset-base"
                           animate={props}

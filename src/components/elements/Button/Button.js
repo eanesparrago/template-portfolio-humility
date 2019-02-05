@@ -44,7 +44,7 @@ const StyledButtonText = styled.button`
   width: 100%;
 
   &:hover {
-    color: ${p => p.theme.color.primary.main};
+    color: ${p => !p.dark && p.theme.color.primary.main};
   }
 
   &:focus {

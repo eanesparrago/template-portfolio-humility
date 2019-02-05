@@ -10,7 +10,7 @@ const StyledAboutMe = styled.div`
   padding-left: ${p => p.theme.increment(2)};
   padding-bottom: ${p => p.theme.increment(8)};
 
-  @media (max-width: ${p => p.theme.breakpoint.tabletPortrait}) {
+  @media (max-width: ${p => p.theme.breakpoint.desktopM}) {
     padding-left: ${p => p.theme.increment(2)};
     padding-right: ${p => p.theme.increment(2)};
   }
