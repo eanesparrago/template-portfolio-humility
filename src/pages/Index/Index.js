@@ -280,9 +280,9 @@ class index extends Component {
 
     Router.push(`/#${anchor}`).then(() => {
       // >>> Bug workaround >:(
-      setTimeout(() => {
-        this.setState({ currentSection: title });
-      }, 100);
+      // setTimeout(() => {
+      //   this.setState({ currentSection: title });
+      // }, 100);
     });
   };
 
