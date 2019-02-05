@@ -103,6 +103,7 @@ const StyledModal = styled.div`
     min-width: 38%;
     width: 100%;
     padding-bottom: ${p => p.theme.increment(6)};
+    overflow-y: auto;
 
     @media (max-width: ${p => p.theme.breakpoint.desktopM}) {
       min-width: 100%;

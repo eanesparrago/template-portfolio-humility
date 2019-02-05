@@ -56,6 +56,8 @@ const StyledButtonIconLink = styled.a`
   cursor: pointer;
   transition-property: transform, box-shadow;
   transition-duration: 100ms;
+  min-height: var(--size-button);
+  min-width: var(--size-button);
 
   &:hover {
     transform: scale(1.1);

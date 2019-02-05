@@ -83,7 +83,7 @@ export default class extends Component {
               <Typography as="h4">{content.subtitle}</Typography>
             </Item>
 
-            <Item margin="stack-base">
+            <Item margin="stack-m">
               <Typography as="p">{content.description}</Typography>
             </Item>
 

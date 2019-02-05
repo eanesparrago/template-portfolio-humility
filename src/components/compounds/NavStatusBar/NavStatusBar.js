@@ -16,7 +16,6 @@ const StyledNavStatusBar = styled.div`
     (p.content === "Projects" && p.theme.color.primary.dark) ||
     (p.content === "Skills" && p.theme.color.dark) ||
     (p.content === "About Me" && p.theme.color.primary.dark)};
-  transition-duration: 300ms;
 
   > .item-text {
     /* border: 1px solid magenta; */
@@ -50,6 +49,7 @@ const StyledNavStatusBar = styled.div`
     opacity: 0;
     transform: translateX(6rem);
     transition-duration: 200ms;
+    pointer-events: none;
 
     @media (max-width: ${p => p.theme.breakpoint.tabletLandscape}) {
       display: flex;
@@ -67,6 +67,7 @@ const StyledNavStatusBar = styled.div`
   > .box-menu--open {
     opacity: 1;
     transform: translateX(-1rem);
+    pointer-events: initial;
   }
 
   > .item-hamburger {

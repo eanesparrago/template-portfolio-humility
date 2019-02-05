@@ -18,6 +18,7 @@ const StyledPhoto = styled.div`
   img {
     width: 100%;
     height: 100%;
+    display: block;
     object-fit: ${p =>
       (p.variant === "contain" && "contain") ||
       (p.variant === "cover" && "cover")};
