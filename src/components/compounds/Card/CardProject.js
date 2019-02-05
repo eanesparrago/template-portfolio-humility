@@ -57,8 +57,8 @@ export default class extends Component {
         <Item name="card-project-photo" onClick={e => showModal(e, content.id)}>
           <Photo>
             <img
-              src={content.photos[0].link}
-              alt={content.photos[0].description}
+              src={content.thumbnail.link}
+              alt={content.thumbnail.description}
             />
           </Photo>
         </Item>

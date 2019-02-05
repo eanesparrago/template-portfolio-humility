@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import { Spring, Trail, Transition } from "react-spring";
 import { Item, Box, Container, Area } from "../../layout";
 import { Button, Typography, Photo } from "../../elements";
 
