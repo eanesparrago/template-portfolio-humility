@@ -32,6 +32,7 @@ const StyledCard = styled.article`
 
   .item-card-project-photo {
     height: ${p => p.theme.increment(16)};
+    cursor: pointer;
   }
 `;
 
@@ -53,7 +54,7 @@ export default class extends Component {
 
     return (
       <StyledCard>
-        <Item name="card-project-photo">
+        <Item name="card-project-photo" onClick={e => showModal(e, content.id)}>
           <Photo>
             <img
               src={content.photos[0].link}

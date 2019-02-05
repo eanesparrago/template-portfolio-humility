@@ -10,6 +10,11 @@ import {
   NavStatusBarContainer,
   ModalContainer
 } from "../../containers";
+import {
+  disableBodyScroll,
+  enableBodyScroll,
+  clearAllBodyScrollLocks
+} from "body-scroll-lock";
 
 import Skills from "./components/Skills";
 import AboutMe from "./components/AboutMe";
@@ -205,12 +210,16 @@ class index extends Component {
     isModalOpen: false
   };
 
+  modal = React.createRef();
+
   componentDidMount() {
     document.addEventListener("keydown", this.onKeyDown);
+    this.modal = this.modal.current;
   }
 
   componentWillUnmount() {
     document.removeEventListener("keydown", this.onKeyDown);
+    clearAllBodyScrollLocks();
   }
 
   // >>> Dynamic
@@ -227,7 +236,9 @@ class index extends Component {
   // >>> Static
   showModal = (e, id) => {
     e.preventDefault();
-    document.addEventListener("scroll", this.handleScroll);
+    // document.addEventListener("scroll", this.handleScroll);
+
+    disableBodyScroll(this.modal);
 
     this.setState({
       project: this.props.projects.find(project => project.id == id)
@@ -236,7 +247,9 @@ class index extends Component {
   };
 
   dismissModal = () => {
-    document.removeEventListener("scroll", this.handleScroll);
+    // document.removeEventListener("scroll", this.handleScroll);
+
+    enableBodyScroll(this.modal);
 
     this.setState({
       // project: {},
@@ -245,9 +258,9 @@ class index extends Component {
     Router.push("/");
   };
 
-  handleScroll = () => {
-    this.dismissModal();
-  };
+  // handleScroll = () => {
+  //   this.dismissModal();
+  // };
 
   onKeyDown = e => {
     if (!this.props.router.query.projectId) return;
@@ -329,7 +342,7 @@ class index extends Component {
                   {show =>
                     show &&
                     (props => (
-                      <Container name="modal" animate={props}>
+                      <Container name="modal" animate={props} ref={this.modal}>
                         <ModalContainer
                           id={router.query.projectId}
                           onDismiss={this.dismissModal}
