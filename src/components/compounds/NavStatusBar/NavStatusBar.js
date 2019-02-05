@@ -20,7 +20,7 @@ const StyledNavStatusBar = styled.div`
   transition-duration: 300ms;
 
   @media (max-width: ${p => p.theme.breakpoint.tabletLandscape}) {
-    border-top: var(--size-xxs) solid ${p => p.theme.color.light};
+    /* border-top: var(--size-xxs) solid ${p => p.theme.color.light}; */
   }
 
   > .item-text {
