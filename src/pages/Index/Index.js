@@ -224,30 +224,30 @@ class index extends Component {
   }
 
   // >>> Dynamic
-  showModal = (e, id) => {
-    e.preventDefault();
-    document.addEventListener("scroll", this.handleScroll);
-
-    disableBodyScroll(this.modal);
-
-    this.setState({
-      project: this.props.projects.find(project => project.id == id)
-    });
-    Router.push(`/?projectId=${id}`, `/project?id=${id}`);
-  };
-
-  // >>> Static
   // showModal = (e, id) => {
   //   e.preventDefault();
-  //   // document.addEventListener("scroll", this.handleScroll);
+  //   document.addEventListener("scroll", this.handleScroll);
 
   //   disableBodyScroll(this.modal);
 
   //   this.setState({
   //     project: this.props.projects.find(project => project.id == id)
   //   });
-  //   Router.push(`/?projectId=${id}`, `/project/${id}`);
+  //   Router.push(`/?projectId=${id}`, `/project?id=${id}`);
   // };
+
+  // >>> Static
+  showModal = (e, id) => {
+    e.preventDefault();
+    // document.addEventListener("scroll", this.handleScroll);
+
+    disableBodyScroll(this.modal);
+
+    this.setState({
+      project: this.props.projects.find(project => project.id == id)
+    });
+    Router.push(`/?projectId=${id}`, `/project/${id}`);
+  };
 
   dismissModal = () => {
     // document.removeEventListener("scroll", this.handleScroll);
