@@ -66,7 +66,6 @@ const StyledModal = styled.div`
     bottom: 0;
     left: 0;
     right: 0;
-    cursor: pointer;
   }
 
   .item-modal-gallery {
@@ -74,6 +73,7 @@ const StyledModal = styled.div`
     flex: 1 0;
     box-shadow: ${p => p.theme.shadow[1]};
     height: 62%;
+    cursor: pointer;
     transition-duration: 200ms;
     transition-timing-function: ease-out;
     z-index: 100;
