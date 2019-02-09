@@ -1,4 +1,4 @@
-# Boilerplate LJEsp Next Basic
+# Humility — Portfolio Template
 
 ```bash
 npm install
