@@ -54,7 +54,7 @@ const sidebarContent = {
       }
     ],
     footer: {
-      text: "Made by LJEsp",
+      text: "Made by Ian",
       imageLink: "https://avatars1.githubusercontent.com/u/36854142?s=460&v=4",
       imageHref: "https://github.com/LJEsp"
     }
